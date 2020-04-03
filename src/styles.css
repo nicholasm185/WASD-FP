@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Bully;
+  src: url("/assets/Bully.otf");
+}
+
+.btn-green{
+  background-color: #61892F;
+  border-radius: 20px;
+}
+
+.btn-green:hover{
+  background-color: #86C232;
+}
+
+.btn-green:active{
+  background-color: #aaed38;
+}
+
+.default-navbar-bg{
+  background-color: #3c4043;
+}
+
+.brand-font{
+  font-family: Bully, sans-serif;
+  font-size: 150%;
+  letter-spacing: 2px;
+}
