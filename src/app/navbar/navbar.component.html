@@ -2,20 +2,24 @@
   <div class="col-md-4">
     <a class="navbar-brand brand-font" [routerLink]="['/']">Ez Ticket</a>
   </div>
-  <div class="col-md-1">
-    <a class="navbar-text" routerLink="/search">Search</a>
-  </div>
-  <div class="col-md-1">
-    <a class="navbar-text">Create</a>
-  </div>
-  <div class="col-md-1">
-    <a class="navbar-text">Buy a ticket</a>
-  </div>
-  <div class="col-md-1">
-    <a class="navbar-text">Account</a>
+  <div class="col-md-4 text-center">
+    <div class="row">
+      <div class="col-md">
+        <a class="navbar-text" [routerLink]="['search']">Search</a>
+      </div>
+      <div class="col-md">
+        <a class="navbar-text">Create</a>
+      </div>
+      <div class="col-md">
+        <a class="navbar-text">Buy a ticket</a>
+      </div>
+      <div class="col-md">
+        <a class="navbar-text">Account</a>
+      </div>
+    </div>
   </div>
   <div class="col-md-4 text-right">
-    <button class="btn btn-green">Login</button>
+    <button class="btn btn-green mr-4">Login</button>
     <button class="btn btn-green">Sign Up!</button>
   </div>
 </nav>
