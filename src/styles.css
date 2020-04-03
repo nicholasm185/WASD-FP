@@ -3,6 +3,14 @@
   font-family: Bully;
   src: url("/assets/Bully.otf");
 }
+@font-face {
+  font-family: Nunito;
+  src: url("/assets/Nunito.otf");
+}
+@font-face {
+  font-family: Nunito-light;
+  src: url("/assets/Nunito-light.otf");
+}
 
 .btn-green{
   background-color: #61892F;
@@ -30,3 +38,6 @@
 body{
   background-color:#363636;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
