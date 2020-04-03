@@ -6,7 +6,7 @@
 
 .btn-green{
   background-color: #61892F;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .btn-green:hover{
@@ -23,6 +23,10 @@
 
 .brand-font{
   font-family: Bully, sans-serif;
-  font-size: 150%;
-  letter-spacing: 2px;
+  font-size: 190%;
+  letter-spacing: 3px;
+}
+
+body{
+  background-color:#363636;
 }

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wasd-fp"
+    }
+  },
+  "defaultProject": "wasd-fp",
+  "cli": {
+    "analytics": "0bc1dbc6-3c81-4a0b-b397-34137e29fa27"
+  }
 }

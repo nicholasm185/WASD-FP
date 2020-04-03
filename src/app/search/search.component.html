@@ -1,0 +1,10 @@
+
+<div class="wrapper text-center" ng-app="app" ng-controller="index">
+    <div class="text-wrapper">
+        <div class="search-wrapper">
+            <input type="text" class="input" ng-model="searchString" placeholder="What do you want to find?">
+        </div>
+        <div class="result-wrapper" ng-repeat="item in items | searchFilter: searchString">
+        </div>
+    </div>
+</div>
