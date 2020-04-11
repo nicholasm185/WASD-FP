@@ -138,5 +138,38 @@ html.transition *,
 html.transition *:before,
 html.transition *:after {
   transition: all 750ms !important;
-  transition-delay: 0 !important;
+  transition-delay: 0s !important;
+}
+
+.vertical-center {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.main-search{
+  border-width: 0px;
+  border-radius: 20px;
+  border-bottom-color: var(--font-color);
+  background-color: var(--bg-color);
+  border-bottom-width: 1px;
+  transition: all 0.3s;
+}
+
+.main-search-addon{
+  background-color: var(--bg-color);
+  border-width: 0px;
+  border-left-color: var(--font-color);
+}
+
+.main-search:hover{
+  box-shadow: 0 4px 2px -2px var(--hover-color);
+  background-color: var(--bg-color);
+  transition: all 0.3s;
+}
+
+.main-search:focus{
+  box-shadow: 0 4px 2px -2px var(--hover-color);
+  background-color: white;
+  transition: all 0.3s;
 }
