@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { BuyComponent } from './buy/buy.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations:
@@ -16,7 +17,8 @@ import { BuyComponent } from './buy/buy.component';
     NavbarComponent,
     SearchComponent,
     CreateEventComponent,
-    BuyComponent
+    BuyComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
