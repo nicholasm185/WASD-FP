@@ -5,11 +5,11 @@
 }
 @font-face {
   font-family: Nunito;
-  src: url("/assets/Nunito-Regular.otf");
+  src: url("/assets/Nunito-Regular.ttf");
 }
 @font-face {
   font-family: Nunito-light;
-  src: url("/assets/Nunito-light.otf");
+  src: url("/assets/Nunito-light.ttf");
 }
 
 .btn-green{
@@ -34,12 +34,8 @@
 
 .brand-font{
   font-family: Bully, sans-serif;
-  font-size: 190%;
+  font-size: 140%;
   letter-spacing: 3px;
-}
-
-body{
-  background-color: var(--bg-color);
 }
 
 a{
@@ -54,12 +50,24 @@ a.navbar-text:hover{
 }
 
 h1{
+  
   font-family: Nunito, sans-serif;
   color: var(--primary-color);
 }
 
-:root{
+h5{
+  font-family: Nunito, sans-serif;
+  color: var(--font-color);
+}
+
+html, body{
+  background-color: var(--bg-color);
   height: 100%;
+  margin: 0;
+
+}
+
+.light {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   --primary-color: #86C232;
   --secondary-color: #536390;
@@ -67,71 +75,20 @@ h1{
   --bg-color: #dadada;
   --heading-color: #292922;
   --hover-color: #aaed38;
+
 }
 
-[theme="dark"] {
+.dark {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   --primary-color: #86C232;
   --secondary-color: #818cab;
   --font-color: #e1e1ff;
   --bg-color: #161625;
   --heading-color: #818cab;
   --hover-color: #aaed38;
+  
 }
 
-.theme-switch-wrapper {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.theme-switch {
-  display: inline-block;
-  height: 22px;
-  position: relative;
-  width: 45px;
-}
-
-.theme-switch input{
-  display: none;
-}
-
-.slider {
-  background-color: #ccc;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-}
-
-.slider:before {
-  background-color: #fff;
-  bottom: 2px;
-  content: "";
-  height: 18px;
-  left: 2px;
-  position: absolute;
-  transition: .4s;
-  width: 20px;
-}
-
-input:checked + .slider {
-  background-color: #86C232;
-}
-
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
-
-.slider.round {
-  border-radius: 24px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
 
 html.transition,
 html.transition *,
@@ -139,4 +96,52 @@ html.transition *:before,
 html.transition *:after {
   transition: all 750ms !important;
   transition-delay: 0 !important;
+}
+
+.theme-switcher-wrap {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.theme-switcher-wrap .theme-switcher {
+  display: inline-block;
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  width: 45px;
+  border-radius: 22px;
+  background-color: #626262;
+}
+.theme-switcher-wrap .theme-switcher .switch-path {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 16.5px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 18px;
+  border-radius: 22px;
+}
+.theme-switcher-wrap .theme-switcher .switch-path .switch-handle {
+  background-color: #000;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 22px;
+}
+.theme-switcher-wrap .theme-switcher .theme switcher {
+  display: none;
+}
+.theme-switcher-wrap .theme-switcher.active .switch-path {
+  background-color: #86C232;
+  transform: translateX(22px);
+}
+.theme-switcher-wrap .theme-switcher.active .switch-handle {
+  transform: translateX(22px);
 }

@@ -1,3 +1,7 @@
+
+<!DOCTYPE html>
+<html lang="en" class="{{storedTheme}}" role="main">
+<body>
 <nav class="navbar navbar-dark default-navbar-bg">
   <div class="col-md-4">
     <a class="navbar-brand brand-font" [routerLink]="['/']">Ez Ticket</a>
@@ -19,7 +23,59 @@
     </div>
   </div>
   <div class="col-md-4 text-right">
+
+    <div class="theme-switcher-wrap">
+          <!--<input type="checkbox" id="checkbox" />-->
+          <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
+            <!--<div class="slider round"></div>-->
+            <div class="switch-path"></div>
+            <div class="switch-handle"></div>
+          </label>
+    </div>
+  
     <button class="btn btn-green mr-4">Login</button>
     <button class="btn btn-green">Sign Up!</button>
   </div>
 </nav>
+<script>
+  const toggleSwitch = document.querySelector('.theme-switch input');
+    
+    function switchTheme(e) {
+        if(e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('data-theme', 'dark'); //add this
+        }
+        else{
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('data-theme', 'light'); //add this
+        }
+      }
+    
+    toggleSwitch.addEventListener('change', switchTheme, false);
+    
+    const currentTheme = localStorage.getItem('data-theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+      
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+          }
+        };
+      
+      /*var checkbox = document.querySelector(".theme-switch input[name=theme]");
+      checkbox.addEventListener("change", function(){
+        if(this.checked)
+        {
+          trans();
+          document.documentElement.setAttribute("theme","dark");
+        } else {
+          trans();
+          document.documentElement.setAttribute("theme","light");
+        }
+      });*/
+</script>
+
+<h5>Hiya..!</h5>
+
+</body>
+</html>
