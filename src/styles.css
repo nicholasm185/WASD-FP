@@ -142,6 +142,56 @@ html.transition *:after {
   background-color: #86C232;
   transform: translateX(22px);
 }
-.theme-switcher-wrap .theme-switcher.active .switch-handle {
-  transform: translateX(22px);
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0s !important;
+}
+
+.vertical-center {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.main-search{
+  border-width: 0px;
+  border-radius: 20px;
+  border-bottom-color: var(--font-color);
+  background-color: var(--bg-color);
+  border-bottom-width: 1px;
+  transition: all 0.3s;
+}
+
+.main-search-addon{
+  background-color: var(--bg-color);
+  border-width: 0px;
+  border-left-color: var(--font-color);
+}
+
+.main-search:hover{
+  box-shadow: 0 4px 2px -2px var(--hover-color);
+  background-color: var(--bg-color);
+  transition: all 0.3s;
+}
+
+.main-search:focus{
+  box-shadow: 0 4px 2px -2px var(--hover-color);
+  background-color: white;
+  transition: all 0.3s;
 }
