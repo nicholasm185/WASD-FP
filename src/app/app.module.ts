@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { FooterComponent } from './footer/footer.component';
+import { ImLostComponent } from './im-lost/im-lost.component';
 
 @NgModule({
   declarations:
@@ -23,7 +25,9 @@ import { SignupComponent } from './signup/signup.component';
     BuyComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FooterComponent,
+    ImLostComponent
   ],
   imports: [
     BrowserModule,
