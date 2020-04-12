@@ -50,7 +50,7 @@ a.navbar-text:hover{
 }
 
 h1{
-  
+
   font-family: Nunito, sans-serif;
   color: var(--primary-color);
 }
@@ -86,7 +86,7 @@ html, body{
   --bg-color: #161625;
   --heading-color: #818cab;
   --hover-color: #aaed38;
-  
+
 }
 
 
@@ -172,7 +172,7 @@ html.transition *:after {
 .main-search{
   border-width: 0px;
   border-radius: 20px;
-  border-bottom-color: var(--font-color);
+  border-bottom-color: #424242;
   background-color: var(--bg-color);
   border-bottom-width: 1px;
   transition: all 0.3s;
@@ -181,17 +181,17 @@ html.transition *:after {
 .main-search-addon{
   background-color: var(--bg-color);
   border-width: 0px;
-  border-left-color: var(--font-color);
+  border-left-color: #424242;
 }
 
 .main-search:hover{
-  box-shadow: 0 4px 2px -2px var(--hover-color);
+  box-shadow: 0 4px 2px -2px #AAED38;
   background-color: var(--bg-color);
   transition: all 0.3s;
 }
 
 .main-search:focus{
-  box-shadow: 0 4px 2px -2px var(--hover-color);
+  box-shadow: 0 4px 2px -2px #AAED38;
   background-color: white;
   transition: all 0.3s;
 }
