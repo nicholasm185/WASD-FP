@@ -1,0 +1,52 @@
+<div class="row mt-5"></div>
+<div class="row">
+  <div class="col-md">
+
+  </div>
+  <div class="col-md">
+    <div class="container-fluid">
+      <h2 style="text-align: center">Create Account</h2>
+      <div class="row mt-5">
+        <div class="card w-100" style="border-radius: 20px">
+          <div class="card-body">
+            <form class="" [formGroup]="signupForm">
+              <div class="form-group">
+                <label for="firstName" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">person</i> First Name</label>
+                <input type="text" class="form-control main-search" formControlName="firstName" id="firstName">
+              </div>
+              <div class="form-group">
+                <label for="lastName" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">person</i> Last Name</label>
+                <input type="text" class="form-control main-search" formControlName="lastName" id="lastName">
+              </div>
+              <div class="form-group">
+                <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">email</i> Email</label>
+                <input type="email" class="form-control main-search" formControlName="username" id="username">
+              </div>
+              <div class="form-group">
+                <label for="number" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">phone</i> Phone Number</label>
+                <input type="number" class="form-control main-search" formControlName="number" id="number">
+              </div>
+              <div class="form-group">
+                <label for="password" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i> Password</label>
+                <input type="password" class="form-control main-search" formControlName="password" id="password">
+              </div>
+              <div class="form-group">
+                <label for="confPassword" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i> Confirm Password</label>
+                <input type="password" class="form-control main-search" formControlName="confPassword" id="confPassword">
+              </div>
+              <div class="mt-5 text-center">
+                <button class="btn btn-green" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info w-100" style="border-bottom-right-radius: 20px; border-bottom-left-radius: 20px" role="alert">
+        Already have an account? <a href="login" class="alert-link">Click here!</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md">
+
+  </div>
+</div>
