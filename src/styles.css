@@ -220,7 +220,7 @@ footer {
   display: inline-block;
   margin: 0 0;
   height: 70px;
-  
+
 }
 footer .copyright {
   width: 50%;
@@ -298,4 +298,18 @@ footer .social a:hover {
   background-color: #86C232;
   font-size: 0.8em;
   width: 40%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /*text-align: center;*/
 }

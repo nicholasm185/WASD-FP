@@ -10,7 +10,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { BuyComponent } from './buy/buy.component';
 import { HomeComponent } from './home/home.component';
 import {LoginComponent} from './login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { ImLostComponent } from './im-lost/im-lost.component';
