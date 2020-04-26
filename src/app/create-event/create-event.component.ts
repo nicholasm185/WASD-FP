@@ -8,7 +8,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 })
 export class CreateEventComponent implements OnInit {
   public eventForm: FormGroup;
-
+  storedTheme: string = localStorage.getItem('theme');
   constructor(private  fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -54,5 +54,24 @@ export class CreateEventComponent implements OnInit {
     console.log('submitted');
     console.log(this.eventForm);
   }
+
+  setTheme() {
+    if (this.storedTheme === 'dark') {
+      this.transition();
+      localStorage.setItem('theme', 'light');
+      this.storedTheme = localStorage.getItem('theme');
+    } else {
+      this.transition();
+      localStorage.setItem('theme', 'dark');
+      this.storedTheme = localStorage.getItem('theme');
+    }
+  }
+  transition() {
+    document.documentElement.classList.add('transition');
+    window.setTimeout(() => {
+    document.documentElement.classList.remove('transition');
+    }, 1000);
+  }
+
 
 }

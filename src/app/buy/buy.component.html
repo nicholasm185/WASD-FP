@@ -1,2 +1,41 @@
+<html lang="en" class="{{storedTheme}}" role="main">
+<head>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input');
+      
+          function switchTheme(e) {
+              if(e.target.checked) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  localStorage.setItem('data-theme', 'dark'); //add this
+              }
+              else{
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  localStorage.setItem('data-theme', 'light'); //add this
+              }
+            }
+          toggleSwitch.addEventListener('change', switchTheme, false);
+          const currentTheme = localStorage.getItem('data-theme');
+          if (currentTheme) {
+              document.documentElement.setAttribute('data-theme', currentTheme);
+      
+              if (currentTheme === 'dark') {
+                  toggleSwitch.checked = true;
+                }
+              };
+      </script>
+</head>
 
+<div class="col-md-12 text-right">
+  <div class="theme-switcher-wrap">
+        <!--<input type="checkbox" id="checkbox" />-->
+        <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
+          <!--<div class="slider round"></div>-->
+          <div class="switch-path"></div>
+          <div class="switch-handle"></div>
+        </label>
+</div>
+</div>
+
+<body>
 <p>buy works!</p>
+</body>

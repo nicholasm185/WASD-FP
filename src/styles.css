@@ -41,12 +41,6 @@
   background-color: #011f14;
 }
 
-.brand-font{
-  font-family: Bully, sans-serif;
-  font-size: 140%;
-  letter-spacing: 3px;
-}
-
 a{
   font-family: Nunito, sans-serif;
   transition: color 0.3s linear;
@@ -55,17 +49,43 @@ a{
 }
 
 a.navbar-text:hover{
-  color: var(--hover-color);
+  color: #aaed38;
+}
+
+.brand-font{
+  font-family: Bully, sans-serif;
+  font-size: 140%;
+  letter-spacing: 3px;
+}
+.brand-font:hover{
+  color: #aaed38;
 }
 
 h1{
-
   font-family: Nunito, sans-serif;
   color: var(--primary-color);
 }
-
+h2{
+  font-family: Nunito, sans-serif;
+  color: var(--primary-color);
+}
+h3{
+  font-family: Nunito, sans-serif;
+  color: var(--primary-color);
+}
+h4{
+  font-family: Nunito, sans-serif;
+  color: var(--primary-color);
+}
 h5{
   font-family: Nunito, sans-serif;
+  color: var(--font-color);
+}
+label{
+  font-family: Roboto, sans-serif;
+  color: var(--label-color);
+}
+p{
   color: var(--font-color);
 }
 
@@ -73,31 +93,34 @@ html, body{
   background-color: var(--bg-color);
   height: 100%;
   margin: 0;
-
 }
 
+/*div{
+  height: 100%;
+}*/
+
 .light {
-  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-  --primary-color: #86C232;
+  margin: 0; font-family: Nunito, "Helvetica Neue", sans-serif;
+  --primary-color: #026126;
   --secondary-color: #536390;
   --font-color: #424242;
-  --bg-color: #dadada;
+  --bg-color: #e7e7e7;
   --heading-color: #292922;
   --hover-color: #aaed38;
+  --label-color: #292922;
 
 }
 
 .dark {
-  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0; font-family: Nunito, "Helvetica Neue", sans-serif;
   --primary-color: #86C232;
   --secondary-color: #818cab;
   --font-color: #e1e1ff;
-  --bg-color: #161625;
+  --bg-color: #041610;
   --heading-color: #818cab;
   --hover-color: #aaed38;
-
+  --label-color: #86C232;
 }
-
 
 html.transition,
 html.transition *,
@@ -127,11 +150,11 @@ html.transition *:after {
   background-color: #fff;
   bottom: 2px;
   content: "";
-  height: 16.5px;
-  left: 2px;
+  height: 16px;
+  left: 4px;
   position: absolute;
   transition: .4s;
-  width: 18px;
+  width: 17px;
   border-radius: 22px;
 }
 .theme-switcher-wrap .theme-switcher .switch-path .switch-handle {
@@ -149,7 +172,7 @@ html.transition *:after {
 }
 .theme-switcher-wrap .theme-switcher.active .switch-path {
   background-color: #86C232;
-  transform: translateX(22px);
+  transform: translateX(20px);
 }
 
 input:checked + .slider:before {
@@ -307,7 +330,7 @@ input::-webkit-inner-spin-button {
 }
 
 #footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
