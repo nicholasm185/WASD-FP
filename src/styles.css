@@ -41,6 +41,11 @@
   background-color: #011f14;
 }
 
+.default-navbar-bg:hover{
+  background-color: #466322;
+  transition: all 0.4s;
+}
+
 a{
   font-family: Nunito, sans-serif;
   transition: color 0.3s linear;
@@ -144,7 +149,7 @@ html.transition *:after {
   position: relative;
   width: 45px;
   border-radius: 22px;
-  background-color: #626262;
+  background-color: #bbbbbb;
 }
 .theme-switcher-wrap .theme-switcher .switch-path {
   background-color: #fff;
@@ -173,6 +178,9 @@ html.transition *:after {
 .theme-switcher-wrap .theme-switcher.active .switch-path {
   background-color: #86C232;
   transform: translateX(20px);
+}
+.theme-switcher-wrap .theme-switcher.active {
+  background-color: #002b1b;
 }
 
 input:checked + .slider:before {
