@@ -27,7 +27,7 @@ import { ImLostComponent } from './im-lost/im-lost.component';
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    ImLostComponent
+    ImLostComponent,
   ],
   imports: [
     BrowserModule,

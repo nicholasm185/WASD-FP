@@ -2,7 +2,7 @@
 <head>
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input');
-      
+
           function switchTheme(e) {
               if(e.target.checked) {
                   document.documentElement.setAttribute('data-theme', 'dark');
@@ -17,7 +17,7 @@
           const currentTheme = localStorage.getItem('data-theme');
           if (currentTheme) {
               document.documentElement.setAttribute('data-theme', currentTheme);
-      
+
               if (currentTheme === 'dark') {
                   toggleSwitch.checked = true;
                 }
@@ -42,30 +42,69 @@
     <div class="col-md-2"></div>
     <div class="col-md">
 
-    <h4>New Event</h4>
+    <h2 class="h2">New Event</h2>
       <form [formGroup]="eventForm" novalidate (ngSubmit)="submit()">
 
         <div class="form-group">
-          <label>Event Name</label>
-          <input type="text" formControlName="name">
+          <label for="name">Event Name</label>
+          <input class="form-control" type="text" formControlName="name" id="name">
           <small *ngIf="!eventForm.controls.name.valid" class="text-danger">
             Event name is required.
           </small>
         </div>
 
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input class="form-control" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
+          <small *ngIf="!eventForm.controls.startDate.valid" class="text-danger">
+            Start date required!
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input class="form-control" type="datetime-local" formControlName="endDate" id="endDate">
+          <small *ngIf="!eventForm.controls.endDate.valid" class="text-danger">
+            End date required!
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="eventDescription">Event Description</label>
+          <textarea rows="5" class="form-control" type="text" formControlName="eventDescription" id="eventDescription">Event Description</textarea>
+          <small *ngIf="!eventForm.controls.eventDescription.valid" class="text-danger">
+            Please provide a sufficient event description!
+          </small>
+        </div>
+
         <div formArrayName="contactEmails">
-          <button class="btn btn-primary" (click)="addEmail()">Add another email</button>
-          <div *ngFor="let email of contactEmails.controls; let i = index">
-            <label>Email {{1+i}}</label>
-            <input type="text" [formControlName]="i">
-            <button *ngIf="i>=1" class="btn btn-primary" (click)="removeEmail(i)">Remove email</button>
+          <div class="text-right">
+            <button class="btn btn-green" (click)="addEmail()">Add another email</button>
           </div>
+          <div class="mt-2" *ngFor="let email of contactEmails.controls; let i = index">
+            <div class="form-inline">
+              <label class="mr-2">Email {{1+i}}</label>
+              <input class="form-control mr-2" type="email" [formControlName]="i">
+              <button *ngIf="i>=1" class="btn btn-warning" (click)="removeEmail(i)">Remove email</button>
+            </div>
+          </div>
+        </div>
 
-
+        <div formArrayName="contactPhones">
+          <div class="text-right">
+            <button class="btn btn-green" (click)="addPhone()">Add another phone</button>
+          </div>
+          <div class="mt-2" *ngFor="let phone of contactPhones.controls; let i = index">
+            <div class="form-inline">
+              <label class="mr-2">Phone {{1+i}}</label>
+              <input class="form-control mr-2" type="number" [formControlName]="i">
+              <button *ngIf="i>=1" class="btn btn-warning" (click)="removePhone(i)">Remove email</button>
+            </div>
+          </div>
         </div>
 
 
-        <button type="submit" class="btn btn-green" >Submit</button>
+        <button type="submit" class="btn btn-green mt-5" >Submit</button>
       </form>
     </div>
     <div class="col-md-2"></div>

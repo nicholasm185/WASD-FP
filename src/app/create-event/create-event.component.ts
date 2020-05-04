@@ -1,24 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {DatePipe, formatDate} from '@angular/common';
+import {min} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
-  styleUrls: ['./create-event.component.css']
+  styleUrls: ['./create-event.component.css'],
+  providers: [DatePipe]
 })
+
 export class CreateEventComponent implements OnInit {
   public eventForm: FormGroup;
   storedTheme: string = localStorage.getItem('theme');
-  constructor(private  fb: FormBuilder) { }
+  minDate;
+  constructor(private  fb: FormBuilder, private datePipe: DatePipe) {
+    this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm');
+  }
 
   ngOnInit(): void {
     this.eventForm = this.fb.group({
       name: ['', [Validators.required]],
-      // startDate: ['', [Validators.required]],
-      // endDate: ['', [Validators.required]],
+      eventDescription: ['', [Validators.required, Validators.minLength(12)]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
       contactEmails: this.fb.array([
         this.fb.control('')
+      ]),
+      contactPhones: this.fb.array([
+        this.fb.control('')
       ])
+    });
+    this.eventForm.controls.startDate.valueChanges.subscribe(data => {
+      document.getElementById('endDate').setAttribute('min', data);
     });
   }
 
@@ -28,27 +43,24 @@ export class CreateEventComponent implements OnInit {
 
   addEmail() {
     this.contactEmails.push(this.fb.control(''));
+    console.log(this.minDate);
   }
 
   removeEmail(i: number) {
     this.contactEmails.removeAt(i);
   }
 
-  // initPhone() {
-  //   return this.fb.group({
-  //     phone: ['', [Validators.required]]
-  //   });
-  // }
-  //
-  // addPhone() {
-  //   const control = this.eventForm.controls.contactPhones as FormArray;
-  //   control.push(this.initEmail());
-  // }
-  //
-  // removePhone(i: number) {
-  //   const control = this.eventForm.controls.contactPhones as FormArray;
-  //   control.removeAt(i);
-  // }
+  get contactPhones() {
+    return this.eventForm.get('contactPhones') as FormArray;
+  }
+
+  addPhone() {
+    this.contactPhones.push(this.fb.control(''));
+  }
+
+  removePhone(i: number) {
+    this.contactPhones.removeAt(i);
+  }
 
   submit() {
     console.log('submitted');
