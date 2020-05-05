@@ -96,8 +96,9 @@ p{
 
 html, body{
   background-color: var(--bg-color);
-  height: 100%;
+  height: auto;
   margin: 0;
+  min-height: 100vh;
 }
 
 /*div{
@@ -105,8 +106,8 @@ html, body{
 }*/
 
 .light {
-  margin: 0; font-family: Nunito, "Helvetica Neue", sans-serif;
-  --primary-color: #026126;
+  margin: 0; padding-bottom:40px; font-family: Nunito, "Helvetica Neue", sans-serif;
+  --primary-color: #041610;
   --secondary-color: #536390;
   --font-color: #424242;
   --bg-color: #e7e7e7;
@@ -117,7 +118,7 @@ html, body{
 }
 
 .dark {
-  margin: 0; font-family: Nunito, "Helvetica Neue", sans-serif;
+  margin: 0; padding-bottom:40px; font-family: Nunito, "Helvetica Neue", sans-serif;
   --primary-color: #86C232;
   --secondary-color: #818cab;
   --font-color: #e1e1ff;
@@ -133,6 +134,10 @@ html.transition *:before,
 html.transition *:after {
   transition: all 750ms !important;
   transition-delay: 0 !important;
+}
+
+.center{
+  text-align: center;
 }
 
 .theme-switcher-wrap {
@@ -209,7 +214,7 @@ html.transition *:after {
   align-items: center;
 }
 
-.main-search{
+.main-search {
   border-width: 0px;
   border-radius: 20px;
   border-bottom-color: #424242;
@@ -235,7 +240,9 @@ html.transition *:after {
   background-color: white;
   transition: all 0.3s;
 }
-
+.margin{
+  margin: 10 10 10 10;
+}
 * {
   margin: 0;
   padding: 0;
@@ -247,12 +254,14 @@ html.transition *:after {
 footer {
   width: 100%;
   position: relative;
-  bottom:0px;
+  bottom: 0;
   display: inline-block;
   margin: 0 0;
   height: 70px;
+  background-color: #041610;
 
 }
+
 footer .copyright {
   width: 50%;
   float: left;
@@ -337,11 +346,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#footer {
+/*#footer {
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
-  /*text-align: center;*/
-}
-
+  /*text-align: center;
+}*/

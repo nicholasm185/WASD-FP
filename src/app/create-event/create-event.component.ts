@@ -15,7 +15,7 @@ export class CreateEventComponent implements OnInit {
   public eventForm: FormGroup;
   storedTheme: string = localStorage.getItem('theme');
   minDate;
-  constructor(private  fb: FormBuilder, private datePipe: DatePipe) {
+  constructor(private fb: FormBuilder, private datePipe: DatePipe) {
     this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm');
   }
 
@@ -25,6 +25,8 @@ export class CreateEventComponent implements OnInit {
       eventDescription: ['', [Validators.required, Validators.minLength(12)]],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]],
+      venue: ['', [Validators.required, Validators.minLength(12)]],
+      city: ['', [Validators.required]],
       contactEmails: this.fb.array([
         this.fb.control('')
       ]),

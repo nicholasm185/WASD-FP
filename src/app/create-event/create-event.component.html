@@ -49,7 +49,7 @@
           <label for="name">Event Name</label>
           <input class="form-control" type="text" formControlName="name" id="name">
           <small *ngIf="!eventForm.controls.name.valid" class="text-danger">
-            Event name is required.
+            Please add your event name.
           </small>
         </div>
 
@@ -57,7 +57,7 @@
           <label for="startDate">Start Date</label>
           <input class="form-control" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
           <small *ngIf="!eventForm.controls.startDate.valid" class="text-danger">
-            Start date required!
+            Please determine your event's starting date
           </small>
         </div>
 
@@ -65,7 +65,7 @@
           <label for="endDate">End Date</label>
           <input class="form-control" type="datetime-local" formControlName="endDate" id="endDate">
           <small *ngIf="!eventForm.controls.endDate.valid" class="text-danger">
-            End date required!
+            Please determine your end date
           </small>
         </div>
 
@@ -73,7 +73,23 @@
           <label for="eventDescription">Event Description</label>
           <textarea rows="5" class="form-control" type="text" formControlName="eventDescription" id="eventDescription">Event Description</textarea>
           <small *ngIf="!eventForm.controls.eventDescription.valid" class="text-danger">
-            Please provide a sufficient event description!
+            Please provide a brief description about your event!
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Event Venue</label>
+          <input class="form-control" type="text" formControlName="venue" id="venue">
+          <small *ngIf="!eventForm.controls.venue.valid" class="text-danger">
+            Please specify where your event will be held
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Event City</label>
+          <input class="form-control" type="text" formControlName="city" id="city">
+          <small *ngIf="!eventForm.controls.city.valid" class="text-danger">
+            Please specify which city your event will be held
           </small>
         </div>
 
@@ -102,13 +118,14 @@
             </div>
           </div>
         </div>
-
-
-        <button type="submit" class="btn btn-green mt-5" >Submit</button>
+        <div class="center">
+        <button type="submit" class="btn btn-green mt-5">Create Event</button>
+      </div>
       </form>
     </div>
     <div class="col-md-2"></div>
   </div>
 </div>
+
 </body>
-</html>
+
