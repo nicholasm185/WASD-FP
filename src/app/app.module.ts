@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { ImLostComponent } from './im-lost/im-lost.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations:
@@ -33,7 +34,8 @@ import { ImLostComponent } from './im-lost/im-lost.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
