@@ -7,6 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  accessToken: String;
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +19,19 @@ export class AuthService {
     }, {headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })})
+  }
+
+  signup(name: String, email: String, password: String, c_password: String){
+    return this.http.post('http://52.77.254.112/api/register',
+    {
+      name: name,
+      email: email,
+      password: password,
+      c_password: c_password
+    },{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
   }
 }
