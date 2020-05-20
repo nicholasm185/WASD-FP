@@ -9,12 +9,15 @@ import { SearchComponent } from './search/search.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { BuyComponent } from './buy/buy.component';
 import { HomeComponent } from './home/home.component';
-import {LoginComponent} from './login/login.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { ImLostComponent } from './im-lost/im-lost.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations:
@@ -29,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     FooterComponent,
     ImLostComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

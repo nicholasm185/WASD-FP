@@ -18,7 +18,7 @@
         <a class="navbar-text" [routerLink]="['buy']">Buy a ticket</a>
       </div>
       <div class="col-md">
-        <a class="navbar-text">Account</a>
+        <a class="navbar-text" [routerLink]="['dashboard']">Account</a>
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@
 
     <button class="btn btn-green mr-4" [routerLink]="['login']">Login</button>
     <button class="btn btn-green" [routerLink]="['signup']">Sign Up!</button>
+    <!--<button class="btn btn-green" [routerLink]="['login']" *ngIf="!isLoggedIn$">Log out</button>-->
   </div>
 </nav>
 

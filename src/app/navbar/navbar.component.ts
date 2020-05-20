@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { transcode } from 'buffer';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import { AuthGuard } from '../auth.guard';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +11,8 @@ import { transcode } from 'buffer';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn$: Observable<boolean>;
+  // userName: string;
   storedTheme: string = localStorage.getItem('theme');
   setTheme() {
     if (this.storedTheme === 'dark') {
@@ -27,7 +32,18 @@ export class NavbarComponent implements OnInit {
     }, 1000);
   }
 
-  constructor() { }
-  ngOnInit(): void {
+  constructor(
+    private auth: AuthService,
+  ) {
+    // auth.getUserName.subscribe(name => this.changeName(name));
+  }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.auth.isLoggedIn;
+    // this.auth.getUserName.subscribe(name => this.userName = name);
+  }
+
+  onLogOut() {
+    this.auth.logout();
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {AuthService} from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +9,7 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
   signupForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
@@ -34,14 +36,24 @@ export class SignupComponent implements OnInit {
     }, 1000);
   }
 
-  constructor(private auth:AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
   }
 
-  signup(){
-    this.auth.signup(this.signupForm.get('name').value,this.signupForm.get('email').value,this.signupForm.get('password').value,this.signupForm.get('confPassword').value).subscribe(
-      data => {console.log(data)}
+  signup() {
+    // tslint:disable-next-line: max-line-length
+    this.auth.signup(this.signupForm.get('name').value, this.signupForm.get('email').value,this.signupForm.get('password').value, this.signupForm.get('confPassword').value).subscribe(
+      (data: any) => {
+        console.log(data);
+        localStorage.setItem('accessToken', data.data.token);
+        alert('Registered successfully');
+        this.router.navigate(['/dashboard']);
+      },
+      err => console.log(err)
     )
   }
 

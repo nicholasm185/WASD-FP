@@ -8,14 +8,17 @@ import { SignupComponent } from './signup/signup.component';
 import { ImLostComponent } from './im-lost/im-lost.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { BuyComponent } from './buy/buy.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
   {path: 'search', component: SearchComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'create', component: CreateEventComponent},
+  {path: 'create', component: CreateEventComponent, canActivate: [AuthGuard]},
   {path: 'buy', component: BuyComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 
   {path: '**', component: ImLostComponent}
 ];

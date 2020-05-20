@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -32,13 +34,22 @@ export class LoginComponent implements OnInit {
     }, 1000);
   }
 
-  constructor(private auth:AuthService){}
-    
-  login(){
-    console.log('login pressed')
-    this.auth.login(this.loginForm.get('username').value, this.loginForm.get('password').value).subscribe(data =>{
-      console.log(data['success']['token'])
-    })
+  constructor(
+    private auth: AuthService,
+    private router: Router
+    ) {}
+
+  login() {
+    console.log('login pressed');
+    this.auth.login(this.loginForm.get('username').value, this.loginForm.get('password').value).subscribe(
+      (data: any) => {
+        console.log(data);
+        localStorage.setItem('accessToken', data.success.token);
+        alert('Hello');
+        this.router.navigate(['/dashboard']);
+      },
+      err => console.log(err)
+    );
   }
 
   ngOnInit(): void {
