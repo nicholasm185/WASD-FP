@@ -37,7 +37,38 @@
 </div>
 
 <p>Dashboard</p>
-<h2>Hi, *name*</h2>
+<div class="profile-page">
 
+    <div class="user-info">
+      <div class="container">
+        <div class="row">
+  
+          <div class="col-xs-12 col-md-10 offset-md-1">
+            <!--<img [src]="image" class="user-img" />-->
+            <h2> Hi, {{ auth.getUserName() }} </h2>
+            <p>bio</p>
+            <h5>Basic Info</h5>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <div class="articles-toggle">
+            <ul class="nav nav-pills outline-active">
+              <li class="nav-item">
+                <a class="nav-link">
+                   My Events
+                </a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 
 </html>

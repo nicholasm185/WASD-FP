@@ -9,7 +9,7 @@ import { ImLostComponent } from './im-lost/im-lost.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { BuyComponent } from './buy/buy.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},

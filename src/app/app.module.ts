@@ -16,7 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ImLostComponent } from './im-lost/im-lost.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({

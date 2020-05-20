@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         console.log(data);
         localStorage.setItem('accessToken', data.success.token);
-        alert('Hello');
+        localStorage.setItem('userName', data.success.name);
+        alert('Welcome back, ' + this.auth.getUserName());
         this.router.navigate(['/dashboard']);
       },
       err => console.log(err)

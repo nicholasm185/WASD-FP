@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EventEmitter } from 'protractor';
+import { Router } from '@angular/router';
+import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,10 @@ import { EventEmitter } from 'protractor';
 export class AuthService {
   // tslint:disable-next-line: ban-types
   accessToken: String;
+  userName: string;
   private loggedIn = new BehaviorSubject<boolean>(false);
-  // public getUserName = new Subject();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(email: String, password: String){
     this.loggedIn.next(true);
@@ -49,8 +51,17 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
+  getUserName() {
+    return this.userName = localStorage.getItem('userName');
+  }
+
   logout() {
-    this.loggedIn.next(false);
+    // this.loggedIn.next(false);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('userName');
+    
+    this.router.navigate(['/']);
+    alert('Logged out successfully');
   }
 
 }

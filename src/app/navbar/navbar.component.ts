@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { transcode } from 'buffer';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { AuthGuard } from '../auth.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Component({
   selector: 'app-navbar',
@@ -33,17 +33,17 @@ export class NavbarComponent implements OnInit {
   }
 
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
   ) {
     // auth.getUserName.subscribe(name => this.changeName(name));
   }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.auth.isLoggedIn;
+    // this.isLoggedIn$ = this.auth.isLoggedIn;
     // this.auth.getUserName.subscribe(name => this.userName = name);
   }
 
-  onLogOut() {
+  /*onLogOut() {
     this.auth.logout();
-  }
+  }*/
 }

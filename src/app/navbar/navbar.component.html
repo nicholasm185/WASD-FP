@@ -33,9 +33,9 @@
           </label>
     </div>-->
 
-    <button class="btn btn-green mr-4" [routerLink]="['login']">Login</button>
-    <button class="btn btn-green" [routerLink]="['signup']">Sign Up!</button>
-    <!--<button class="btn btn-green" [routerLink]="['login']" *ngIf="!isLoggedIn$">Log out</button>-->
+    <button class="btn btn-green mr-4" *ngIf="!auth.amILoggedIn()" [routerLink]="['login']">Login</button>
+    <button class="btn btn-green" *ngIf="!auth.amILoggedIn()" [routerLink]="['signup']">Sign Up!</button>
+    <button class="btn btn-green" (click)="auth.logout()" *ngIf="auth.amILoggedIn()">Log out</button>
   </div>
 </nav>
 
