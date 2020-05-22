@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +11,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   storedTheme: string = localStorage.getItem('theme');
+  user$: Observable<User>;
+  url = 'http://52.77.254.112/api/user';
+  public User = [];
+  public errorMsg = [];
   setTheme() {
     if (this.storedTheme === 'dark') {
       this.transition();
@@ -26,9 +33,28 @@ export class DashboardComponent implements OnInit {
     }, 1000);
   }
 
-  constructor(public auth: AuthService) { }
+  constructor(
+    public auth: AuthService,
+    public http: HttpClient) { }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
+    this.auth.getUserInfo().subscribe(
+      (data: any) => this.User = data);
+    console.log();
+  }*/
+
+  /*ngOnInit(): void {
+    this.http.get(this.url).toPromise().then(data => {
+      console.log(data);
+
+      });
+  }*/
+
+  ngOnInit() {
+    this.auth.getUserInfo()
+      .subscribe(data => this.User = data,
+                error => this.errorMsg = error);
   }
+
 
 }

@@ -4,7 +4,8 @@ import { Observable, throwError, BehaviorSubject, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EventEmitter } from 'protractor';
 import { Router } from '@angular/router';
-import { userInfo } from 'os';
+import { User } from 'src/app/interfaces/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,10 @@ export class AuthService {
     return !!localStorage.getItem('accessToken');
   }
 
+  getToken() {
+    return localStorage.getItem('accessToken');
+  }
+
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
@@ -55,11 +60,15 @@ export class AuthService {
     return this.userName = localStorage.getItem('userName');
   }
 
+  getUserInfo(): Observable<User[]> {
+    return this.http.get<User[]>('http://52.77.254.112/api/user');
+  }
+
   logout() {
     // this.loggedIn.next(false);
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
-    
+
     this.router.navigate(['/']);
     alert('Logged out successfully');
   }

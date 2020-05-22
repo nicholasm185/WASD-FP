@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
     // tslint:disable-next-line: max-line-length
-    this.auth.signup(this.signupForm.get('name').value, this.signupForm.get('email').value,this.signupForm.get('password').value, this.signupForm.get('confPassword').value).subscribe(
+    this.auth.signup(this.signupForm.get('name').value, this.signupForm.get('email').value, this.signupForm.get('password').value, this.signupForm.get('confPassword').value).subscribe(
       (data: any) => {
         console.log(data);
         localStorage.setItem('accessToken', data.data.token);
