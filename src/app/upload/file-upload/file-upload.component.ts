@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
-  public id: string;
 
   proofForm = new FormGroup({
     id: new FormControl(''),
@@ -42,7 +41,9 @@ export class FileUploadComponent implements OnInit {
   constructor(public upload: FileUploadService, public auth: AuthService, public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.proofForm.get('id').setValue(this.route.snapshot.paramMap.get('id'));
+    this.proofForm.get('email').setValue(this.route.snapshot.paramMap.get('email'));
+    this.proofForm.get('event_id').setValue(this.route.snapshot.paramMap.get('event_id'));
   }
 
   onFileChanged(event){

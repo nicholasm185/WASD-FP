@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'buy', component: BuyComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 
-  {path: 'proofing', component: FileUploadComponent},
+  {path: 'proofing/:event_id/:id/:email', component: FileUploadComponent},
   {path: '**', component: ImLostComponent}
 ];
 
