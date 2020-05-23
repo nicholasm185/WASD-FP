@@ -19,6 +19,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { FileUploadComponent } from './upload/file-upload/file-upload.component';
+import { FileUploadService } from './services/file-upload.service';
 
 @NgModule({
   declarations:
@@ -34,6 +36,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FooterComponent,
     ImLostComponent,
     DashboardComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
-    }
+    },
+    FileUploadService,
   ],
   bootstrap: [AppComponent]
 })

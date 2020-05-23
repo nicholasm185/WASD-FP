@@ -3,7 +3,14 @@ import { AuthService } from '../services/auth.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
+import { Pipe, PipeTransform } from '@angular/core';
 
+@Pipe({ name: 'values',  pure: false })
+export class ValuesPipe implements PipeTransform {
+  transform(value: any, args: any[] = null): any {
+    return Object.keys(value).map(key => value[key]);
+  }
+}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,8 +20,10 @@ export class DashboardComponent implements OnInit {
   storedTheme: string = localStorage.getItem('theme');
   user$: Observable<User>;
   url = 'http://52.77.254.112/api/user';
+
   public User = [];
   public errorMsg = [];
+
   setTheme() {
     if (this.storedTheme === 'dark') {
       this.transition();
@@ -39,8 +48,8 @@ export class DashboardComponent implements OnInit {
 
   /*ngOnInit(): void {
     this.auth.getUserInfo().subscribe(
-      (data: any) => this.User = data);
-    console.log();
+      (data) => this.User = data);
+    console.log(data);
   }*/
 
   /*ngOnInit(): void {
@@ -55,6 +64,5 @@ export class DashboardComponent implements OnInit {
       .subscribe(data => this.User = data,
                 error => this.errorMsg = error);
   }
-
 
 }

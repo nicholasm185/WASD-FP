@@ -1,0 +1,34 @@
+<html lang="en" class="{{storedTheme}}" role="main">
+
+    <h2>Verification</h2>
+    <div class="card-body">
+        <form class="" [formGroup]="proofForm">
+          <div class="form-group">
+            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">email</i>Your attendee ID</label>
+            <input type="username" class="form-control main-search" formControlName="id" id="id">
+          </div>
+          <div class="form-group">
+            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Email</label>
+            <input type="username" class="form-control main-search" formControlName="email" id="email">
+          </div>
+          <div class="form-group">
+            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Event ID</label>
+            <input type="username" class="form-control main-search" formControlName="event_id" id="event_id">
+          </div>
+          
+          <h2>File Upload</h2>
+          <label for="file">- </label>
+          <input type="file"
+            id="file"
+            (change)="upload.handleFileInput($event.target.files)">
+            <!--<button type="button" (click)="upload.uploadPic()">Upload!</button>-->
+        <div class="mt-5 text-center">
+            <button class="btn btn-green" type="submit" (click)="proofing()">Verify</button>
+        </div>
+
+        </form>
+    </div>
+    <div class="form-group">
+        
+    </div>
+</html>

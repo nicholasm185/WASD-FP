@@ -1,5 +1,5 @@
 import { Injectable, Output } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EventEmitter } from 'protractor';
@@ -15,10 +15,17 @@ export class AuthService {
   accessToken: String;
   userName: string;
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private userUrl = 'http://52.77.254.112/api/user';
+  private proofUrl: string;
+
+  public name: [string];
+  public email: [string];
+
+  user$: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  login(email: String, password: String){
+  login(email: String, password: String) {
     this.loggedIn.next(true);
     return this.http.post('http://52.77.254.112/api/login',
     {
@@ -61,7 +68,11 @@ export class AuthService {
   }
 
   getUserInfo(): Observable<User[]> {
-    return this.http.get<User[]>('http://52.77.254.112/api/user');
+    return this.http.get<User[]>(this.userUrl);
+  }
+
+  getProofing() {
+    return this.http.get(this.proofUrl);
   }
 
   logout() {
