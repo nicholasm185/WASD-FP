@@ -3,6 +3,7 @@ import { FileUploadService } from '../../services/file-upload.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -39,24 +40,35 @@ export class FileUploadComponent implements OnInit {
     }, 1000);
   }
 
-  constructor(public upload: FileUploadService, public auth: AuthService, public router: Router, private route: ActivatedRoute) { }
+  constructor(public upload: FileUploadService, public auth: AuthService, public router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
-  proofing() {
-    console.log('proofing commencing');
-    // tslint:disable-next-line: max-line-length
-    this.upload.uploadFileNew(this.proofForm.get('id').value, this.proofForm.get('email').value, this.proofForm.get('event_id').value).subscribe(
-      (data: any) => {
-        console.log(data);
+  onFileChanged(event){
+    this.fileToUpload = event.target.files[0];
+  }
 
-        alert('Proofing complete, ' + this.auth.getUserName());
-        // this.router.navigate(['/dashboard']);
-      },
-      err => console.log(err)
-    );
+  proofing() {
+    const uploadData = new FormData();
+    uploadData.append('id', this.proofForm.get('id').value);
+    uploadData.append('email', this.proofForm.get('email').value);
+    uploadData.append('event_id', this.proofForm.get('event_id').value);
+    uploadData.append('paymentProof', this.fileToUpload, this.fileToUpload.name);
+    this.http.post('http://52.77.254.112/api/attendee/upload', uploadData).subscribe(event =>{
+      console.log(event);
+    })
+
+    // this.upload.uploadFileNew(this.proofForm.get('id').value, this.proofForm.get('email').value, this.proofForm.get('event_id').value).subscribe(
+    //   (data: any) => {
+    //     console.log(data);
+
+    //     alert('Proofing complete, ' + this.auth.getUserName());
+    //     // this.router.navigate(['/dashboard']);
+    //   },
+    //   err => console.log(err)
+    // );
   }
 
   /*getAttendeeId() {

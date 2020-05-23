@@ -20,7 +20,7 @@
           <label for="file">- </label>
           <input type="file"
             id="file"
-            (change)="upload.handleFileInput($event.target.files)">
+            (change)="onFileChanged($event)">
             <!--<button type="button" (click)="upload.uploadPic()">Upload!</button>-->
         <div class="mt-5 text-center">
             <button class="btn btn-green" type="submit" (click)="proofing()">Verify</button>
