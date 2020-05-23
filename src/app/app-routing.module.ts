@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 
   {path: 'proofing/:event_id/:id/:email', component: FileUploadComponent},
+  {path: 'proofing', component: FileUploadComponent},
   {path: '**', component: ImLostComponent}
 ];
 
