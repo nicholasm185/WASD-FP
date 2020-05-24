@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FileUploadComponent } from './upload/file-upload/file-upload.component';
 import { FileUploadService } from './services/file-upload.service';
+import { ConfirmationComponent } from './upload/confirmation/confirmation.component';
+
 
 @NgModule({
   declarations:
@@ -37,6 +41,7 @@ import { FileUploadService } from './services/file-upload.service';
     ImLostComponent,
     DashboardComponent,
     FileUploadComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,8 @@ import { FileUploadService } from './services/file-upload.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     AuthService,
@@ -54,6 +61,10 @@ import { FileUploadService } from './services/file-upload.service';
       multi: true,
     },
     FileUploadService,
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: {hasBackdrop: false, direction: 'ltr'}
+    },
   ],
   bootstrap: [AppComponent]
 })

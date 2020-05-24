@@ -1,26 +1,68 @@
 <html lang="en" class="{{storedTheme}}" role="main">
+<head>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input');
+      
+          function switchTheme(e) {
+              if(e.target.checked) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  localStorage.setItem('data-theme', 'dark'); //add this
+              }
+              else{
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  localStorage.setItem('data-theme', 'light'); //add this
+              }
+            }
+          toggleSwitch.addEventListener('change', switchTheme, false);
+          const currentTheme = localStorage.getItem('data-theme');
+          if (currentTheme) {
+              document.documentElement.setAttribute('data-theme', currentTheme);
+      
+              if (currentTheme === 'dark') {
+                  toggleSwitch.checked = true;
+                }
+              };
+      </script>
+</head>
+
+<div class="col-md-12 text-right">
+  <div class="theme-switcher-wrap">
+        <!--<input type="checkbox" id="checkbox" />-->
+        <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
+          <!--<div class="slider round"></div>-->
+          <div class="switch-path"></div>
+          <div class="switch-handle"></div>
+        </label>
+</div>
+</div>
 
     <h2>Verification</h2>
     <div class="card-body">
         <form class="" [formGroup]="proofForm">
+        <p>Please verify whether the information below are correct</p>
           <div class="form-group">
-            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">email</i>Your attendee ID</label>
+            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Event ID</label>
+            <input type="username" class="form-control main-search" formControlName="event_id" id="event_id">
+          </div>
+          <div class="form-group">
+            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Your attendee ID</label>
             <input type="username" class="form-control main-search" formControlName="id" id="id">
           </div>
           <div class="form-group">
             <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Email</label>
             <input type="username" class="form-control main-search" formControlName="email" id="email">
           </div>
-          <div class="form-group">
-            <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Event ID</label>
-            <input type="username" class="form-control main-search" formControlName="event_id" id="event_id">
-          </div>
+          
           
           <h2>File Upload</h2>
-          <label for="file">- </label>
-          <input type="file"
+          <label for="file"></label>
+          <p>Please upload your proof of payment</p>
+          <input accept=".png, .jpeg, .jpg" type="file"
             id="file"
-            (change)="onFileChanged($event)">
+            (change)="onFileChanged($event)"/>
+        <!--<div>
+        <a class="btn btn-danger" (click)="()" *ngIf="onFileChanged">Change</a>
+        </div>-->
         <div class="mt-5 text-center">
             <button class="btn btn-green" type="submit" (click)="proofing()">Verify</button>
         </div>
@@ -28,6 +70,6 @@
         </form>
     </div>
     <div class="form-group">
-        
+
     </div>
 </html>

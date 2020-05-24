@@ -1,0 +1,10 @@
+.dialog{
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    display: inline-block;
+    }
+
+.mat-dialog-actions{
+    display: relative;
+}
