@@ -57,7 +57,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       err => console.log(err)
-    )
+    );
   }
 
 }

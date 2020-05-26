@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DatePipe, formatDate} from '@angular/common';
 import {min} from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file-upload.service';
 
@@ -56,8 +55,10 @@ export class CreateEventComponent implements OnInit {
   }
 
   addEmail() {
-    this.contactEmails.push(this.fb.control(''));
     console.log(this.minDate);
+    if (this.contactEmails.length < 3) {
+      this.contactEmails.push(this.fb.control(''));
+    }
   }
 
   removeEmail(i: number) {
@@ -67,12 +68,15 @@ export class CreateEventComponent implements OnInit {
   get contactPhones() {
     return this.eventForm.get('contactPhones') as FormArray;
   }
+
   getContactPhones() {
     return this.eventForm.get('contactPhones') as FormArray;
   }
 
   addPhone() {
-    this.contactPhones.push(this.fb.control(''));
+    if (this.contactPhones.length < 3) {
+      this.contactPhones.push(this.fb.control(''));
+   }
   }
 
   removePhone(i: number) {
@@ -94,8 +98,14 @@ export class CreateEventComponent implements OnInit {
     eventData.append('venue', this.eventForm.get('venue').value);
     eventData.append('city', this.eventForm.get('city').value);
     eventData.append('eventDescription', this.eventForm.get('eventDescription').value);
-    eventData.append('email1', this.getContactEmails().value);
-    eventData.append('phone1', this.getContactPhones().value);
+
+    eventData.append('email1', this.eventForm.get('contactEmails.0').value);
+    eventData.append('email2', this.eventForm.get('contactEmails.1').value);
+    eventData.append('email3', this.eventForm.get('contactEmails.2').value);
+    eventData.append('phone1', this.eventForm.get('contactPhones.0').value);
+    eventData.append('phone2', this.eventForm.get('contactPhones.1').value);
+    eventData.append('phone3', this.eventForm.get('contactPhones.2').value);
+
     eventData.append('picture',  this.eventPoster);
     console.log('inserting done');
 
@@ -110,7 +120,7 @@ export class CreateEventComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
 
       const maxSize = 20971520;
-      const allowedTypes = ['.png', '.jpeg', '.jpg'];
+      const allowedTypes = ['.png', '.jpeg', '.jpg', '.pdf', '.tiff', '.eps'];
       const maxHeight = 15200;
       const maxWidth = 25600;
 

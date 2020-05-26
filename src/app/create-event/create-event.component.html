@@ -112,9 +112,9 @@
           </div>
           <div class="mt-2" *ngFor="let phone of contactPhones.controls; let i = index">
             <div class="form-inline">
-              <label class="mr-2">Phone {{1+i}}</label>
+              <label class="mr-2">Contact {{1+i}}</label>
               <input class="form-control mr-2" type="number" [formControlName]="i">
-              <button *ngIf="i>=1" class="btn btn-warning" (click)="removePhone(i)">Remove email</button>
+              <button *ngIf="i>=1" class="btn btn-warning" (click)="removePhone(i)">Remove contact</button>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
         <h3>Share your poster here!</h3>
           <label for="file"></label>
           <p>Upload your poster to show to the world!</p>
-          <input accept=".png, .jpeg, .jpg" type="file"
+          <input accept=".png, .jpeg, .jpg, .pdf, .tiff, .eps" type="file"
             id="file"
             (change)="onFileChanged($event)"/>
             
