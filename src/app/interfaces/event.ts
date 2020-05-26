@@ -7,4 +7,6 @@ export interface Event {
   contactEmail: string[];
   contactPhone: number[];
   eventId: string[];
+  eventDescription: string[];
+  picture: File;
 }

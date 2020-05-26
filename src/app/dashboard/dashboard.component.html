@@ -47,26 +47,13 @@
             <!--<img [src]="image" class="user-img" />-->
             <h2> Hi, {{ auth.getUserName() }} </h2>
             <p>bio</p>
-            <h5>Basic Info</h5>
-            
-            <div *ngFor="let item of User">
-              Name: {{item.name}}
-              Email: {{item.email}}
+            <h4>Basic Info</h4>
+
+            <div>
+              <h5>Name: {{auth.getUserName()}}<tr></h5>
+              <h5>Email: {{auth.getEmail()}}</h5>
             </div>
 
-            <!--{{User | json}}-->
-
-            <!--<div *ngIf="auth.user$ | async as user">
-              <h5>Name: {{user.name}}</h5>
-              <h5>Email: {{user.email}}</h5>
-            </div>-->
-
-            <!--<div *ngFor="let item of User | keyvalue">
-              
-              <li>{{item.key}}: {{item.value}}</li>
-              
-            </div>-->
- 
           </div>
         </div>
       </div>

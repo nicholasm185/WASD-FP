@@ -51,6 +51,9 @@ export class SignupComponent implements OnInit {
         console.log(data);
         localStorage.setItem('accessToken', data.data.token);
         alert('Registered successfully');
+        localStorage.setItem('userName', data.data.name);
+        localStorage.setItem('id', data.data.id);
+        localStorage.setItem('email', data.data.email);
         this.router.navigate(['/dashboard']);
       },
       err => console.log(err)

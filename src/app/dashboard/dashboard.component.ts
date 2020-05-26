@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit {
   /*ngOnInit(): void {
     this.http.get(this.url).toPromise().then(data => {
       console.log(data);
-
       });
   }*/
 

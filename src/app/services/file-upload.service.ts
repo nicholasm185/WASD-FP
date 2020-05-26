@@ -9,12 +9,18 @@ import { AuthService } from './auth.service';
 
 export class FileUploadService {
 
+  proofUrl = 'http://52.77.254.112/api/attendee/upload';
+  eventUrl = 'http://52.77.254.112/api/events/create';
+
   constructor(public http: HttpClient, public auth: AuthService) { }
-  url = 'http://52.77.254.112/api/attendee/upload';
 
 
   uploadFile(formData: FormData) {
-    return this.http.post(this.url, formData);
+    return this.http.post(this.proofUrl, formData);
+  }
+
+  uploadEvent(formData: FormData) {
+      return this.http.post(this.eventUrl, formData);
   }
 
 }

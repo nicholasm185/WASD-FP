@@ -67,6 +67,14 @@ export class AuthService {
     return this.userName = localStorage.getItem('userName');
   }
 
+  getId() {
+    return localStorage.getItem('id');
+  }
+
+  getEmail() {
+    return localStorage.getItem('email');
+  }
+
   getUserInfo(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl);
   }

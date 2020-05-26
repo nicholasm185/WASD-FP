@@ -21,6 +21,7 @@ export class FileUploadComponent implements OnInit {
   });
 
   fileToUpload: File = null;
+  previewUrl: any = null;
   storedTheme: string = localStorage.getItem('theme');
   setTheme() {
     if (this.storedTheme === 'dark') {
@@ -70,6 +71,7 @@ export class FileUploadComponent implements OnInit {
         return false;
       }*/
     }
+    this.preview();
     this.fileToUpload = event.target.files[0];
   }
 
@@ -83,6 +85,19 @@ export class FileUploadComponent implements OnInit {
       console.log(event);
       alert('Proofing complete!');
     });
+    this.router.navigate(['/']);
+  }
+
+  preview() {
+    const preview = this.fileToUpload.type;
+    if (preview.match(/image\/*/) == null) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileToUpload);
+    reader.onload = (event) => {
+      this.previewUrl = reader.result;
+    };
   }
 
   public openDialog() {

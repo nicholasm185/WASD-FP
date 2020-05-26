@@ -118,8 +118,20 @@
             </div>
           </div>
         </div>
+        <tr>
+        <h3>Share your poster here!</h3>
+          <label for="file"></label>
+          <p>Upload your poster to show to the world!</p>
+          <input accept=".png, .jpeg, .jpg" type="file"
+            id="file"
+            (change)="onFileChanged($event)"/>
+            
+          <div class="image-preview mb-3" *ngIf="previewUrl">
+              <img [src]="previewUrl" height="500" width="500" />                 
+          </div>
+
         <div class="center">
-        <button type="submit" class="btn btn-green mt-5">Create Event</button>
+        <button type="button" (click)="createEvent()" class="btn btn-green mt-5">Create Event</button>
       </div>
       </form>
     </div>
