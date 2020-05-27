@@ -11,6 +11,7 @@ import { BuyComponent } from './buy/buy.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FileUploadComponent } from './upload/file-upload/file-upload.component';
+import { SuccessComponent } from './buy/success/success.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'create', component: CreateEventComponent, canActivate: [AuthGuard]},
   {path: 'buy', component: BuyComponent},
+  {path: 'buy/:event_id', component: BuyComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'success', component: SuccessComponent},
 
   {path: 'proofing/:event_id/:id/:email', component: FileUploadComponent},
   {path: 'proofing', component: FileUploadComponent},

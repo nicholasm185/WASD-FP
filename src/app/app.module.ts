@@ -24,6 +24,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FileUploadComponent } from './upload/file-upload/file-upload.component';
 import { FileUploadService } from './services/file-upload.service';
 import { ConfirmationComponent } from './upload/confirmation/confirmation.component';
+import { SuccessComponent } from './buy/success/success.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ConfirmationComponent } from './upload/confirmation/confirmation.compon
     DashboardComponent,
     FileUploadComponent,
     ConfirmationComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,

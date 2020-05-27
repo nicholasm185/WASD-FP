@@ -58,6 +58,8 @@ export class CreateEventComponent implements OnInit {
     console.log(this.minDate);
     if (this.contactEmails.length < 3) {
       this.contactEmails.push(this.fb.control(''));
+    } else {
+      alert('You can only put a maximum of three emails');
     }
   }
 
@@ -76,6 +78,8 @@ export class CreateEventComponent implements OnInit {
   addPhone() {
     if (this.contactPhones.length < 3) {
       this.contactPhones.push(this.fb.control(''));
+   } else {
+     alert('You can only put a maximum of three contacts');
    }
   }
 
@@ -112,8 +116,12 @@ export class CreateEventComponent implements OnInit {
     this.upload.uploadEvent(eventData).subscribe((event: any) => {
       console.log(event);
     });
-    alert('Event succesfully created!');
-    this.router.navigate(['/']);
+    if (this.eventForm.invalid) {
+      alert('Please fill in the required information');
+    } else {
+      alert('Event succesfully created!');
+      this.router.navigate(['/']);
+    }
   }
 
   onFileChanged(event) {

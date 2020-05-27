@@ -36,21 +36,27 @@
 </div>
 </div>
 
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md">
+
     <h2>Verification</h2>
-    <div class="card-body">
+    
         <form class="" [formGroup]="proofForm">
         <p>Please verify whether the information below are correct</p>
           <div class="form-group">
             <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Event ID</label>
-            <input type="username" class="form-control main-search" formControlName="event_id" id="event_id">
+            <input type="username" readonly class="form-control main-search" formControlName="event_id" id="event_id">
           </div>
           <div class="form-group">
             <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Your attendee ID</label>
-            <input type="username" class="form-control main-search" formControlName="id" id="id">
+            <input type="username" readonly class="form-control main-search" formControlName="id" id="id">
           </div>
           <div class="form-group">
             <label for="username" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i>Email</label>
-            <input type="username" class="form-control main-search" formControlName="email" id="email">
+            <input type="username" readonly class="form-control main-search" formControlName="email" id="email">
           </div>
           
           
@@ -69,7 +75,8 @@
 
         </form>
     </div>
-    <div class="form-group">
-
+    <div class="col-md-2"></div>
     </div>
-</html>
+    </div>
+
+  </body>

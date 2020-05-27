@@ -2,7 +2,7 @@
 <head>
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input');
-      
+
           function switchTheme(e) {
               if(e.target.checked) {
                   document.documentElement.setAttribute('data-theme', 'dark');
@@ -17,7 +17,7 @@
           const currentTheme = localStorage.getItem('data-theme');
           if (currentTheme) {
               document.documentElement.setAttribute('data-theme', currentTheme);
-      
+
               if (currentTheme === 'dark') {
                   toggleSwitch.checked = true;
                 }
@@ -37,5 +37,68 @@
 </div>
 
 <body>
-<p>buy works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md">
+
+    <h2 class="h2">Buy Ticket</h2>
+      <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <label for="event_id" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top"></i>Event ID</label>
+          <input class="form-control main-search" placeholder="The unique code of your Event" type="text" formControlName="event_id" id="event_id">
+          <small *ngIf="!buyForm.controls.event_id.valid" class="text-danger">
+
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="form-control main-search" type="text" formControlName="name" id="name">
+          <small *ngIf="!buyForm.controls.name.valid" class="text-danger">
+            Please input your name
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="eventDescription">Email</label>
+          <input class="form-control main-search" type="email" formControlName="email" id="email">
+          <small *ngIf="!buyForm.controls.email.valid" class="text-danger">
+            Please input your email
+          </small>
+        </div>
+
+        <div class="mb-3">
+          <label for="numTickets">Amount of tickets</label>
+          <select class="custom-select main-search" (change)="changeMethod($event)" formControlName="numTickets" id="numTickets" onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;"> 
+             <option value="">- Choose your quantity -</option>
+             <option *ngFor="let i of qty;" [ngValue]="i"> {{i}} </option>
+          </select>
+          <!-- error block -->
+          <div class="invalid-feedback" *ngIf="numTickets.errors?.required">
+             <sup>*</sup>Please enter your quantity
+          </div>
+       </div>
+
+        <div class="mb-3">
+          <select class="custom-select main-search" (change)="changeMethod($event)" formControlName="paymentMethod" id="paymentMethod" >
+             <option value="">- Choose your payment method -</option>
+             <option *ngFor="let item of paymentMethods" [ngValue]="item">{{item}}</option>
+          </select>
+          <!-- error block -->
+          <div class="invalid-feedback" *ngIf="paymentMethod.errors?.required">
+             <sup>*</sup>Please enter your payment method
+          </div>
+       </div>
+
+        <div class="center">
+        <button type="button" (click)="buyTicket()" class="btn btn-green mt-5">Buy Now!</button>
+      </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
 </body>

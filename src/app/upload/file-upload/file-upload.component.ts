@@ -81,11 +81,16 @@ export class FileUploadComponent implements OnInit {
     uploadData.append('email', this.proofForm.get('email').value);
     uploadData.append('event_id', this.proofForm.get('event_id').value);
     uploadData.append('paymentProof', this.fileToUpload, this.fileToUpload.name);
+
     this.upload.uploadFile(uploadData).subscribe((event: any) => {
       console.log(event);
-      alert('Proofing complete!');
     });
-    this.router.navigate(['/']);
+    if (this.proofForm.invalid) {
+      alert('Please fill in the required information');
+    } else {
+      alert('Proofing complete!');
+      this.router.navigate(['/']);
+    }
   }
 
   preview() {
