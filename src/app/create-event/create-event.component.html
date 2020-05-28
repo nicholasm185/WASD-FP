@@ -52,7 +52,7 @@
             Please add your event name.
           </small>
         </div>
-
+        <hr>
         <div class="form-group">
           <label for="startDate">Start Date</label>
           <input class="form-control main-search" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
@@ -101,7 +101,7 @@
             <div class="form-inline">
               <label class="mr-2">Email {{1+i}}</label>
               <input class="form-control mr-2" type="email" [formControlName]="i">
-              <button *ngIf="i>=1" class="btn btn-warning" (click)="removeEmail(i)">Remove email</button>
+              <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removeEmail(i)">Remove email</button>
             </div>
           </div>
         </div>
@@ -114,10 +114,11 @@
             <div class="form-inline">
               <label class="mr-2">Contact {{1+i}}</label>
               <input class="form-control mr-2" type="number" [formControlName]="i">
-              <button *ngIf="i>=1" class="btn btn-warning" (click)="removePhone(i)">Remove contact</button>
+              <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removePhone(i)">Remove contact</button>
             </div>
           </div>
         </div>
+        <hr>
         <tr>
         <h3>Share your poster here!</h3>
           <label for="file"></label>
@@ -130,8 +131,9 @@
               <img [src]="previewUrl" height="500" width="500" />                 
           </div>
         </tr>
+        <hr>
         <div class="center">
-        <button type="button" (click)="createEvent()" class="btn btn-green mt-5">Create Event</button>
+        <button type="button" (click)="submit()" class="btn btn-green mt-5">Create Event</button>
         </div>
 
       </form>

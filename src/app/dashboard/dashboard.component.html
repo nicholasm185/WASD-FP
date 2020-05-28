@@ -42,13 +42,12 @@
     <div class="user-info">
       <div class="container">
         <div class="row">
-  
           <div class="col-xs-12 col-md-10 offset-md-1">
             <!--<img [src]="image" class="user-img" />-->
             <h2> Hi, {{ auth.getUserName() }} </h2>
             <p>bio</p>
             <h4>Basic Info</h4>
-
+            <hr width="200%">
             <div>
               <h5>Name: {{auth.getUserName()}}<tr></h5>
               <h5>Email: {{auth.getEmail()}}</h5>
@@ -58,7 +57,7 @@
         </div>
       </div>
     </div>
-  
+    <hr width="100%">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
@@ -74,6 +73,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="center">
+    <button type="button" (click)="this.router.navigate(['/cancel'])" class="btn btn-warning mt-5">Cancel Purchase</button>
   </div>
 
 </html>

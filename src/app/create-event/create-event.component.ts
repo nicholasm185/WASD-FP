@@ -88,8 +88,13 @@ export class CreateEventComponent implements OnInit {
   }
 
   submit() {
-    console.log('submitted');
-    console.log(this.eventForm);
+    if (confirm('Are you all set?')) {
+      console.log('You pressed OK!');
+      console.log(this.eventForm);
+      this.createEvent();
+    } else {
+      alert('Do not worry, there is plenty of time.');
+    }
   }
 
   createEvent() {

@@ -25,6 +25,7 @@ import { FileUploadComponent } from './upload/file-upload/file-upload.component'
 import { FileUploadService } from './services/file-upload.service';
 import { ConfirmationComponent } from './upload/confirmation/confirmation.component';
 import { SuccessComponent } from './buy/success/success.component';
+import { CancelComponent } from './buy/cancel/cancel.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { SuccessComponent } from './buy/success/success.component';
     FileUploadComponent,
     ConfirmationComponent,
     SuccessComponent,
+    CancelComponent,
   ],
   imports: [
     BrowserModule,

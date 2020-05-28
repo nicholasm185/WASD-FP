@@ -122,4 +122,13 @@ export class FileUploadComponent implements OnInit {
     });
   }
 
+  submit() {
+    if (confirm('Do you confirm the contents of this data?')) {
+      console.log('You pressed OK!');
+      console.log(this.proofForm);
+      this.proofing();
+    } else {
+      alert('Please recheck your credentials.');
+    }
+  }
 }

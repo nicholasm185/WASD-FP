@@ -130,7 +130,7 @@ html, body{
   --heading-color: #292922;
   --hover-color: #aaed38;
   --label-color: #292922;
-
+  --hr-color: #808888;
 }
 
 .dark {
@@ -142,6 +142,7 @@ html, body{
   --heading-color: #818cab;
   --hover-color: #aaed38;
   --label-color: #86C232;
+  --hr-color: #86C232;
 }
 
 html.transition,
@@ -270,12 +271,11 @@ html.transition *:after {
 footer {
   width: 100%;
   position: relative;
-  bottom: 0;
+  bottom: -10px;
   display: inline-block;
-  margin: 0 0;
+  margin: -10px 0 0 0;
   height: 70px;
-  background-color: #041610;
-
+  background-color: #011f14;
 }
 
 footer .copyright {
@@ -383,6 +383,19 @@ input::-webkit-inner-spin-button {
 img{
   display: inline-block;
   position: center;
+}
+
+hr {
+  display: block;
+  width: 50%;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  border-top: 0.5px solid var(--hr-color);
+  border-bottom: 0.5px solid var(--hr-color);
 }
 
 /*#footer {

@@ -25,7 +25,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  login(email: String, password: String) {
+  login(email: string, password: string) {
     this.loggedIn.next(true);
     return this.http.post('http://52.77.254.112/api/login',
     {
@@ -36,7 +36,7 @@ export class AuthService {
     })});
   }
 
-  signup(name: String, email: String, password: String, c_password: String) {
+  signup(name: string, email: string, password: string, c_password: string) {
     this.loggedIn.next(true);
     return this.http.post('http://52.77.254.112/api/register',
     {

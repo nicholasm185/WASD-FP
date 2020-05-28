@@ -10,11 +10,16 @@ import { AuthService } from './auth.service';
 export class BuyService {
 
   buyUrl = 'http://52.77.254.112/api/attendee/register';
+  cancelUrl = 'http://52.77.254.112/api/attendee/cancel';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 
   buyTicket(formData: FormData) {
     return this.http.post(this.buyUrl, formData);
+  }
+
+  cancelTicket(formData: FormData) {
+    return this.http.post(this.cancelUrl, formData);
   }
 
 }

@@ -96,8 +96,12 @@ export class BuyComponent implements OnInit {
   }*/
 
   submit() {
-    console.log('submitted');
-    console.log(this.buyForm);
+    if (confirm('If you are ready, click OK!')) {
+      console.log('You pressed OK!');
+      console.log(this.buyForm);
+      this.buyTicket();
+    } else {
+      alert('Do not worry, there is plenty of time.');
+    }
   }
-
 }

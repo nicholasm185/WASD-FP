@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Pipe, PipeTransform } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Pipe({ name: 'values',  pure: false })
 export class ValuesPipe implements PipeTransform {
@@ -44,7 +45,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    public http: HttpClient) { }
+    public http: HttpClient,
+    public router: Router) { }
 
   /*ngOnInit(): void {
     this.auth.getUserInfo().subscribe(
