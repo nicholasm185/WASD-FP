@@ -13,6 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { FileUploadComponent } from './upload/file-upload/file-upload.component';
 import { SuccessComponent } from './buy/success/success.component';
 import { CancelComponent } from './buy/cancel/cancel.component';
+import { EventPageComponent } from './event-page/event-page.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -26,6 +27,8 @@ const routes: Routes = [
   {path: 'success', component: SuccessComponent},
   {path: 'cancel', component: CancelComponent},
   {path: 'cancel/:event_id', component: CancelComponent},
+
+  {path: 'event/:event_id', component: EventPageComponent},
 
   {path: 'proofing/:event_id/:id/:email', component: FileUploadComponent},
   {path: 'proofing', component: FileUploadComponent},
