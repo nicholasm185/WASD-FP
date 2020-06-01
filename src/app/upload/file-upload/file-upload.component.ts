@@ -71,8 +71,8 @@ export class FileUploadComponent implements OnInit {
         return false;
       }*/
     }
-    this.preview();
     this.fileToUpload = event.target.files[0];
+    this.preview();
   }
 
   proofing() {
@@ -96,6 +96,7 @@ export class FileUploadComponent implements OnInit {
   preview() {
     const preview = this.fileToUpload.type;
     if (preview.match(/image\/*/) == null) {
+      console.log("here")
       return;
     }
     const reader = new FileReader();
