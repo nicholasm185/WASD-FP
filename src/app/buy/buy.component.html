@@ -47,7 +47,7 @@
 
         <div class="form-group">
           <label for="event_id" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top"></i>Event ID</label>
-          <input class="form-control main-search" placeholder="The unique code of your Event" type="text" formControlName="event_id" id="event_id">
+          <input class="form-control main-search" required placeholder="The unique code of your Event" type="text" formControlName="event_id" id="event_id">
           <small *ngIf="!buyForm.controls.event_id.valid" class="text-danger">
 
           </small>
@@ -56,7 +56,7 @@
 
         <div class="form-group">
           <label for="name">Name</label>
-          <input class="form-control main-search" type="text" formControlName="name" id="name">
+          <input class="form-control main-search" type="text" formControlName="name" id="name" required>
           <small *ngIf="!buyForm.controls.name.valid" class="text-danger">
             Please input your name
           </small>
@@ -64,7 +64,7 @@
 
         <div class="form-group">
           <label for="eventDescription">Email</label>
-          <input class="form-control main-search" type="email" formControlName="email" id="email">
+          <input class="form-control main-search" type="email" formControlName="email" id="email" required>
           <small *ngIf="!buyForm.controls.email.valid" class="text-danger">
             Please input your email
           </small>
@@ -72,7 +72,7 @@
 
         <div class="mb-3">
           <label for="numTickets">Amount of tickets</label>
-          <select class="custom-select main-search" (change)="changeMethod($event)" formControlName="numTickets" id="numTickets" onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;"> 
+          <select class="custom-select main-search" (change)="changeMethod($event)" required formControlName="numTickets" id="numTickets" onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;"> 
              <option value="">- Choose your quantity -</option>
              <option *ngFor="let i of qty;" [ngValue]="i"> {{i}} </option>
           </select>
@@ -83,7 +83,7 @@
        </div>
 
         <div class="mb-3">
-          <select class="custom-select main-search" (change)="changeMethod($event)" formControlName="paymentMethod" id="paymentMethod" >
+          <select class="custom-select main-search"required (change)="changeMethod($event)" formControlName="paymentMethod" id="paymentMethod" >
              <option value="">- Choose your payment method -</option>
              <option *ngFor="let item of paymentMethods" [ngValue]="item">{{item}}</option>
           </select>
