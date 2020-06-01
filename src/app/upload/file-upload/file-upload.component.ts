@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as someTool from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../upload/confirmation/confirmation.component';
+import * as AOS from 'aos';
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
@@ -48,6 +49,7 @@ export class FileUploadComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.proofForm.get('id').setValue(this.route.snapshot.paramMap.get('id'));
     this.proofForm.get('email').setValue(this.route.snapshot.paramMap.get('email'));
     this.proofForm.get('event_id').setValue(this.route.snapshot.paramMap.get('event_id'));
@@ -96,7 +98,7 @@ export class FileUploadComponent implements OnInit {
   preview() {
     const preview = this.fileToUpload.type;
     if (preview.match(/image\/*/) == null) {
-      console.log('here')
+      console.log('here');
       return;
     }
     const reader = new FileReader();

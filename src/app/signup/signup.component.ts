@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -42,6 +42,7 @@ export class SignupComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    AOS.init();
   }
 
   signup() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {GetEventService} from '../services/get-event.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-event-page',
@@ -11,11 +12,12 @@ export class EventPageComponent implements OnInit {
 
   event_id;
   data;
-  picturesrc: String;
+  picturesrc: string;
 
   constructor(private route: ActivatedRoute, private getEvent: GetEventService) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.event_id = this.route.snapshot.paramMap.get('event_id');
     this.getEvent.getEvent(this.event_id).subscribe((data) => {
       // all data of the event is stored in this.data
@@ -24,7 +26,7 @@ export class EventPageComponent implements OnInit {
       this.picturesrc = decodeURIComponent(this.data['picture']);
       console.log(this.data);
     });
-    
+
   }
 
 }

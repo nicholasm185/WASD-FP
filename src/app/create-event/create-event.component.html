@@ -42,18 +42,18 @@
     <div class="col-md-2"></div>
     <div class="col-md">
 
-    <h2 class="h2">New Event</h2>
+    <h2 class="h2" data-aos="fade-up">New Event</h2>
       <form [formGroup]="eventForm" novalidate (ngSubmit)="submit()">
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up">
           <label for="name">Event Name</label>
           <input class="form-control main-search" type="text" formControlName="name" id="name">
           <small *ngIf="!eventForm.controls.name.valid" class="text-danger">
             Please add your event name.
           </small>
         </div>
-        <hr>
-        <div class="form-group">
+        <hr data-aos="fade-up">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="100">
           <label for="startDate">Start Date</label>
           <input class="form-control main-search" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
           <small *ngIf="!eventForm.controls.startDate.valid" class="text-danger">
@@ -61,7 +61,7 @@
           </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
           <label for="endDate">End Date</label>
           <input class="form-control main-search" type="datetime-local" formControlName="endDate" id="endDate">
           <small *ngIf="!eventForm.controls.endDate.valid" class="text-danger">
@@ -69,7 +69,7 @@
           </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
           <label for="eventDescription">Event Description</label>
           <textarea rows="5" class="form-control main-search" type="text" formControlName="eventDescription" id="eventDescription">Event Description</textarea>
           <small *ngIf="!eventForm.controls.eventDescription.valid" class="text-danger">
@@ -77,7 +77,7 @@
           </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="700">
           <label for="location">Event Venue</label>
           <input class="form-control main-search" type="text" formControlName="venue" id="venue">
           <small *ngIf="!eventForm.controls.venue.valid" class="text-danger">
@@ -85,28 +85,28 @@
           </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="900">
           <label for="location">Event City</label>
-          <input class="form-control main-search" type="text" formControlName="city" id="city">
+          <input class="form-control main-search" type="text" formControlName="city" id="city" data-aos="fade-up">
           <small *ngIf="!eventForm.controls.city.valid" class="text-danger">
             Please specify which city your event will be held
           </small>
         </div>
 
-        <div formArrayName="contactEmails">
+        <div formArrayName="contactEmails" data-aos="fade-up" data-aos-delay="1100">
           <div class="text-right">
             <button class="btn btn-green" (click)="addEmail()">Add another email</button>
           </div>
           <div class="mt-2" *ngFor="let email of contactEmails.controls; let i = index">
             <div class="form-inline">
               <label class="mr-2">Email {{1+i}}</label>
-              <input class="form-control mr-2" type="email" [formControlName]="i">
+              <input class="form-control mr-2" type="email" [formControlName]="i" data-aos="fade-up">
               <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removeEmail(i)">Remove email</button>
             </div>
           </div>
         </div>
 
-        <div formArrayName="contactPhones">
+        <div formArrayName="contactPhones" data-aos="fade-up" data-aos-delay="1100">
           <div class="text-right">
             <button class="btn btn-green" (click)="addPhone()">Add another phone</button>
           </div>
@@ -118,22 +118,22 @@
             </div>
           </div>
         </div>
-        <hr>
+        <hr data-aos="fade-up" data-aos-delay="100">
         <tr>
-        <h3>Share your poster here!</h3>
-          <label for="file"></label>
-          <p>Upload your poster to show to the world!</p>
+        <h3 data-aos="fade-up">Share your poster here!</h3>
+          <label for="file" data-aos="fade-up" data-aos-delay="1100"></label>
+          <p data-aos="fade-up">Upload your poster to show to the world!</p>
           <input accept=".png, .jpeg, .jpg, .pdf, .tiff, .eps" type="file"
             id="file"
-            (change)="onFileChanged($event)"/>
+            (change)="onFileChanged($event)" data-aos="fade-up" data-aos-delay="1100"/>
             
           <div class="image-preview mb-3" *ngIf="previewUrl">
               <img [src]="previewUrl" height="500" width="500" />                 
           </div>
         </tr>
-        <hr>
+        <hr data-aos="fade-up">
         <div class="center">
-        <button type="button" (click)="submit()" class="btn btn-green mt-5">Create Event</button>
+        <button type="button" (click)="submit()" class="btn btn-green mt-5" data-aos="fade-up">Create Event</button>
         </div>
 
       </form>

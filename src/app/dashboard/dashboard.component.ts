@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as AOS from 'aos';
 @Pipe({ name: 'values',  pure: false })
 export class ValuesPipe implements PipeTransform {
   transform(value: any, args: any[] = null): any {
@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit {
   }*/
 
   ngOnInit() {
+    AOS.init();
     this.auth.getUserInfo()
       .subscribe(data => this.User = data,
                 error => this.errorMsg = error);

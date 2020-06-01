@@ -4,7 +4,7 @@ import {DatePipe, formatDate} from '@angular/common';
 import {min} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file-upload.service';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
@@ -27,6 +27,7 @@ export class CreateEventComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    AOS.init();
     this.eventForm = this.fb.group({
       name: ['', [Validators.required]],
       eventDescription: ['', [Validators.required, Validators.minLength(12)]],

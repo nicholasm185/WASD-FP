@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    AOS.init();
     this.searchBar = document.getElementById("mainSearch");
     this.searchBar.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {

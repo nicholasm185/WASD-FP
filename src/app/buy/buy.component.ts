@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BuyService } from '../services/buy.service';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -38,6 +38,7 @@ export class BuyComponent implements OnInit {
               public buy: BuyService) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.buyForm = this.fb.group({
       name: ['', [Validators.required]],
       event_id: ['', [Validators.required, Validators.minLength(13)]],
