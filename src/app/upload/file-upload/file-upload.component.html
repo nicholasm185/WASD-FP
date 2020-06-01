@@ -69,6 +69,11 @@
         <!--<div>
         <a class="btn btn-danger" (click)="()" *ngIf="onFileChanged">Change</a>
         </div>-->
+
+        <div class="image-preview mb-3" *ngIf="previewUrl">
+          <img [src]="previewUrl" height="500" width="500" />                 
+        </div>
+        
         <div class="mt-5 text-center">
             <button class="btn btn-green" type="submit" (click)="submit()">Verify</button>
         </div>

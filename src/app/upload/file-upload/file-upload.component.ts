@@ -96,7 +96,7 @@ export class FileUploadComponent implements OnInit {
   preview() {
     const preview = this.fileToUpload.type;
     if (preview.match(/image\/*/) == null) {
-      console.log("here")
+      console.log('here')
       return;
     }
     const reader = new FileReader();
