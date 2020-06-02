@@ -79,9 +79,13 @@ indexEvents() {
     // all data of the event is stored in this.data
     this.events = data['data'];
     // for ease of use, storing picture url on this.picturesrc, already encoded
-    this.picturesrc = decodeURIComponent(this.events['picture']).replace(/\+/g, ' ');
+    this.picturesrc = this.decode(this.events['picture']);
     console.log(this.events);
   });
+  }
+
+  decode(data: string){
+    return decodeURIComponent(data).replace(/\+/g, ' ');
   }
 
 

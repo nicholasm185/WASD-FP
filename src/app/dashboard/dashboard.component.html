@@ -77,10 +77,10 @@
 
             <div class="gallery" *ngFor="let i of events" style="text-align:center" data-aos="fade-up" data-aos-delay="1000">
               <h4>
-                 {{ i['eventName'] }}<h5>{{i['picturesrc']}}</h5>
+                 {{ i['eventName'] }}
               </h4>
                <a href="/event/{{i['event_id']}}">
-                 <img src="{{ i['picturesrc'] }}" width="200" height="200">
+                 <img src="{{ decode(i['picture']) }}" width="200" height="200">
                </a>
                <h5>{{i['picturesrc']}}</h5>
                <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
