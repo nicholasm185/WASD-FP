@@ -15,7 +15,7 @@ export class AuthService {
   accessToken: String;
   userName: string;
   private loggedIn = new BehaviorSubject<boolean>(false);
-  private userUrl = 'http://52.77.254.112/api/user';
+  private userUrl = 'http://13.250.248.175/api/user';
   private proofUrl: string;
 
   public name: [string];
@@ -27,7 +27,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     this.loggedIn.next(true);
-    return this.http.post('http://52.77.254.112/api/login',
+    return this.http.post('http://13.250.248.175/api/login',
     {
       email: email,
       password: password,
@@ -38,7 +38,7 @@ export class AuthService {
 
   signup(name: string, email: string, password: string, c_password: string) {
     this.loggedIn.next(true);
-    return this.http.post('http://52.77.254.112/api/register',
+    return this.http.post('http://13.250.248.175/api/register',
     {
       name: name,
       email: email,

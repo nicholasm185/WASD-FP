@@ -73,6 +73,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <img src="{{picturesrc}}" alt="Image" class="img-fluid">
           </div>
+          <p>{{picturesrc}}</p>
 
           <!--
           <div class="col-lg-6 ml-auto">
@@ -90,31 +91,38 @@
       </div>
     </div>
     
-    <!--<div class="site-section">
+    <div class="site-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-4" data-aos="fade-up">
             <div class="site-section-heading">
-              <h2>Programs</h2>
+              <h2>Contact us</h2>
             </div>
           </div>
           <div class="col-lg-6 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus.</p>
+            <p>Feel free to contact the organizer any time!</p>
           </div>
         </div>
 
         <div class="row align-items-stretch program">
           <div class="col-12 border-top border-bottom py-5" data-aos="fade" data-aos-delay="200">
             <div class="row align-items-stretch">
-              <div class="col-md-3 text-white mb-3 mb-md-0"><span class="h4">8:00</span> <span>AM</span></div>
+              <div class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE ME:</span><span class="h4"> {{data['phone1']}}</span></div>
+              <div class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE ME:</span><span class="h4"> {{data['phone2']}}</span></div>
+              <div class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE ME:</span><span class="h4"> {{data['phone3']}}</span></div>
+              
               <div class="col-md-9">
-                <h2 class="text-white">Design your open source strategy</h2>
-                <span>Chris Mathews</span>
+                <h3 class="text-white">{{data['email1']}}</h3>
+                <h3 class="text-white">{{data['email2']}}</h3>
+                <h3 class="text-white">{{data['email3']}}</h3>
               </div>
             </div>
           </div>
+        </div>
+    </div>
+  </div>
 
-          <div class="col-12 border-bottom py-5" data-aos="fade" data-aos-delay="300">
+          <!--<div class="col-12 border-bottom py-5" data-aos="fade" data-aos-delay="300">
             <div class="row align-items-stretch">
               <div class="col-md-3 text-white mb-3 mb-md-0"><span class="h4">9:30</span> <span>AM</span></div>
               <div class="col-md-9">

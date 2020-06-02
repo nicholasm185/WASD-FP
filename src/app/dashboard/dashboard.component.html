@@ -69,6 +69,12 @@
                 </p>
             </li>
             </ul>
+            <div>
+            <a class="event-title" href="/event/{{events['event_id']}}">{{events['eventName']}}</a>
+            <p>{{events['startDate']}}</p>
+            <a class="text-danger" href="/cancelEvent/{{events['event_id']}}">Cancel Event</a>
+            <div id="data">{{appendData(events)}}</div>
+            </div>
           </div>
         </div>
       </div>

@@ -46,22 +46,34 @@
   transition: all 0.4s;
 }
 
-a{
+a {
   font-family: Nunito, sans-serif;
+}
+
+.event-title {
+  font-size: 20px;
+  color: var(--hover-color);
+}
+
+a.navbar-text:hover {
+  color: #aaed38;
   transition: color 0.3s linear;
   -webkit-transition: color 0.3s linear;
   -moz-transition: color 0.3s linear;
-  
 }
 
-a.navbar-text:hover{
+a.navbar-text:active >a{
   color: #aaed38;
+  background-color: aqua;
 }
 
 .brand-font{
   font-family: Bully, sans-serif;
   font-size: 140%;
   letter-spacing: 3px;
+}
+.brand-font .accent{
+  background-color: var(--hr-color);
 }
 .brand-font:hover{
   color: #aaed38;
@@ -106,6 +118,7 @@ label{
 p{
   color: var(--font-color);
 }
+
 li{
   color: var(--font-color);
 }
@@ -478,7 +491,7 @@ hr {
                 font-size: 1.7rem; } }
 
 
-                
+
 
 /*#footer {
   position: relative;

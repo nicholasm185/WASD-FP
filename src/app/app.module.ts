@@ -27,6 +27,7 @@ import { ConfirmationComponent } from './upload/confirmation/confirmation.compon
 import { SuccessComponent } from './buy/success/success.component';
 import { CancelComponent } from './buy/cancel/cancel.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { CancelEventComponent } from './event-page/cancel-event/cancel-event.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { EventPageComponent } from './event-page/event-page.component';
     SuccessComponent,
     CancelComponent,
     EventPageComponent,
+    CancelEventComponent,
   ],
   imports: [
     BrowserModule,

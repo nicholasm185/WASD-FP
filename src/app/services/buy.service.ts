@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
 
 export class BuyService {
 
-  buyUrl = 'http://52.77.254.112/api/attendee/register';
-  cancelUrl = 'http://52.77.254.112/api/attendee/cancel';
+  buyUrl = 'http://13.250.248.175/api/attendee/register';
+  cancelUrl = 'http://13.250.248.175/api/attendee/cancel';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 

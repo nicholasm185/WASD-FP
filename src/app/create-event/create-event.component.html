@@ -43,7 +43,7 @@
     <div class="col-md">
 
     <h2 class="h2" data-aos="fade-up">New Event</h2>
-      <form [formGroup]="eventForm" novalidate (ngSubmit)="submit()">
+      <form [formGroup]="eventForm" novalidate>
 
         <div class="form-group" data-aos="fade-up">
           <label for="name">Event Name</label>
@@ -133,7 +133,7 @@
         </tr>
         <hr data-aos="fade-up">
         <div class="center">
-        <button type="button" (click)="submit()" class="btn btn-green mt-5" data-aos="fade-up">Create Event</button>
+        <button type="button" (click)="onSubmit()" class="btn btn-green mt-5" data-aos="fade-up">Create Event</button>
         </div>
 
       </form>

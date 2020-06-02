@@ -88,7 +88,7 @@ export class CreateEventComponent implements OnInit {
     this.contactPhones.removeAt(i);
   }
 
-  submit() {
+  onSubmit() {
     if (confirm('Are you all set?')) {
       console.log('You pressed OK!');
       console.log(this.eventForm);
