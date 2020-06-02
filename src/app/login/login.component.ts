@@ -51,8 +51,10 @@ export class LoginComponent implements OnInit {
         alert('Welcome back, ' + this.auth.getUserName());
         this.router.navigate(['/dashboard']);
       },
-      err => console.log(err)
-    );
+      error => {
+        console.log(error);
+        alert('Failed to login');
+      });
   }
 
   ngOnInit(): void {

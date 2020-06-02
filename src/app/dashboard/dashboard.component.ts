@@ -22,10 +22,9 @@ export class ValuesPipe implements PipeTransform {
 export class DashboardComponent implements OnInit {
   storedTheme: string = localStorage.getItem('theme');
   user$: Observable<User>;
-  eventList: Observable<Event>;
-  url = 'http://52.77.254.112/api/user';
+
   events;
-  picturesrc;
+  picturesrc: string;
 
   public User = [];
   public errorMsg = [];
@@ -75,24 +74,15 @@ export class DashboardComponent implements OnInit {
                 error => this.errorMsg = error);
   }
 
-
-indexEvents(){
+indexEvents() {
   this.get.showEvents().subscribe((data) => {
     // all data of the event is stored in this.data
-    this.events = data['data'][0];
+    this.events = data['data'];
     // for ease of use, storing picture url on this.picturesrc, already encoded
-    this.picturesrc = decodeURIComponent(this.events['picture']);
+    this.picturesrc = decodeURIComponent(this.events['picture']).replace(/\+/g, ' ');
     console.log(this.events);
   });
   }
 
-appendData(data) {
-    const mainContainer = document.getElementById('eventList');
-    for (var i = 0; i < data.length; i++) {
-        const div = document.createElement('div');
-        div.innerHTML = 'Event: ' + data['eventName'] + ' ' + data[i].startDate;
-        mainContainer.appendChild(div);
-    }
-}
 
 }
