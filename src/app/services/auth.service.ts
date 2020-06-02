@@ -87,6 +87,7 @@ export class AuthService {
     // this.loggedIn.next(false);
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
+    localStorage.removeItem('email');
 
     this.router.navigate(['/']);
     alert('Logged out successfully');

@@ -48,6 +48,7 @@
 
 a {
   font-family: Nunito, sans-serif;
+
 }
 
 .event-title {
@@ -62,9 +63,8 @@ a.navbar-text:hover {
   -moz-transition: color 0.3s linear;
 }
 
-a.navbar-text:active >a{
+.navbar-text:active{
   color: #aaed38;
-  background-color: aqua;
 }
 
 .brand-font{
@@ -72,11 +72,19 @@ a.navbar-text:active >a{
   font-size: 140%;
   letter-spacing: 3px;
 }
+a:link{
+  color: #aaed38;
+}
+
 .brand-font .accent{
+  color: #aaed38;
   background-color: var(--hr-color);
 }
 .brand-font:hover{
   color: #aaed38;
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
 }
 
 h1{
@@ -106,6 +114,12 @@ h4{
   margin-bottom: 10px;
 }
 h5{
+  font-family: Nunito, sans-serif;
+  color: var(--font-color);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h6{
   font-family: Nunito, sans-serif;
   color: var(--font-color);
   margin-top: 10px;

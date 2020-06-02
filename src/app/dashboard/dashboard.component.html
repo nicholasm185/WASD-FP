@@ -64,16 +64,29 @@
           <div class="articles-toggle">
             <ul class="nav nav-pills outline-active">
               <li class="nav-item">
-                <p class="nav-link">
+                <h4 class="nav-link">
                    My Events
-                </p>
+                </h4>
             </li>
             </ul>
-            <div>
-            <a class="event-title" href="/event/{{events['event_id']}}">{{events['eventName']}}</a>
+            <div><h5>{{picturesrc}}</h5>
+            <!--<a class="event-title" href="/event/{{events['event_id']}}">{{events['eventName']}}</a>
             <p>{{events['startDate']}}</p>
             <a class="text-danger" href="/cancelEvent/{{events['event_id']}}">Cancel Event</a>
-            <div id="data">{{appendData(events)}}</div>
+            <div id="data">{{appendData(events)}}</div>-->
+
+            <div class="gallery" *ngFor="let i of events" style="text-align:center" data-aos="fade-up" data-aos-delay="1000">
+              <h4>
+                 {{ i['eventName'] }}<h5>{{i['picturesrc']}}</h5>
+              </h4>
+               <a href="/event/{{i['event_id']}}">
+                 <img src="{{ i['picturesrc'] }}" width="200" height="200">
+               </a>
+               <h5>{{i['picturesrc']}}</h5>
+               <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
+
+            </div>
+
             </div>
           </div>
         </div>
