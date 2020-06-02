@@ -110,11 +110,17 @@ export class CreateEventComponent implements OnInit {
     eventData.append('eventDescription', this.eventForm.get('eventDescription').value);
 
     eventData.append('email1', this.eventForm.get('contactEmails.0').value);
-    eventData.append('email2', this.eventForm.get('contactEmails.1').value);
-    eventData.append('email3', this.eventForm.get('contactEmails.2').value);
+    if(this.eventForm.get('contactEmails.1') != null){
+      eventData.append('email2', this.eventForm.get('contactEmails.1').value);
+      if(this.eventForm.get('contactEmails.1') != null)
+      eventData.append('email3', this.eventForm.get('contactEmails.2').value);
+    }
     eventData.append('phone1', this.eventForm.get('contactPhones.0').value);
-    eventData.append('phone2', this.eventForm.get('contactPhones.1').value);
-    eventData.append('phone3', this.eventForm.get('contactPhones.2').value);
+    if(this.eventForm.get('contactPhones.1') != null){
+      eventData.append('phone2', this.eventForm.get('contactPhones.1').value);
+      if(this.eventForm.get('contactPhones.2') != null)
+      eventData.append('phone3', this.eventForm.get('contactPhones.2').value);
+    }
 
     eventData.append('picture',  this.eventPoster);
     console.log('inserting done');

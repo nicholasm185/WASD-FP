@@ -23,7 +23,7 @@ export class EventPageComponent implements OnInit {
       // all data of the event is stored in this.data
       this.data = data['data'][0];
       // for ease of use, storing picture url on this.picturesrc, already encoded
-      this.picturesrc = decodeURIComponent(this.data['picture']);
+      this.picturesrc = decodeURIComponent(this.data['picture']).replace(/\+/g, ' ');
       console.log(this.data);
     });
 

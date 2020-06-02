@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
 
 export class FileUploadService {
 
-  proofUrl = 'http://52.77.254.112/api/attendee/upload';
-  eventUrl = 'http://52.77.254.112/api/events/create';
+  proofUrl = 'http://13.250.248.175/api/attendee/upload';
+  eventUrl = 'http://13.250.248.175/api/events/create';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 
