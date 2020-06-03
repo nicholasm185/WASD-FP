@@ -51,6 +51,8 @@
             <div>
               <h5>Name: {{auth.getUserName()}}<tr></h5>
               <h5>Email: {{auth.getEmail()}}</h5>
+              <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">verify email</button>
+              <p *ngIf="!!User['email_verified_at']">email verified!</p>
             </div>
 
           </div>
