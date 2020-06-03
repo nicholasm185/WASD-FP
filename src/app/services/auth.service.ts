@@ -16,6 +16,7 @@ export class AuthService {
   userName: string;
   private loggedIn = new BehaviorSubject<boolean>(false);
   private userUrl = 'http://13.250.248.175/api/user';
+  private verifyUrl = 'http://13.250.248.175/api/email/resend';
   private proofUrl: string;
 
   public name: [string];
@@ -88,9 +89,15 @@ export class AuthService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
     localStorage.removeItem('email');
+    localStorage.removeItem('id');
+    localStorage.removeItem('verified');
 
     this.router.navigate(['/']);
     alert('Logged out successfully');
+  }
+
+  requestVerification(){
+    return this.http.get(this.verifyUrl)
   }
 
 }

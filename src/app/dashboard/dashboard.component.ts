@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -70,8 +70,10 @@ export class DashboardComponent implements OnInit {
     AOS.init();
     this.indexEvents();
     this.auth.getUserInfo()
-      .subscribe(data => this.User = data,
-                error => this.errorMsg = error);
+      .subscribe(data => {
+        this.User = data;
+        console.log(this.User)},
+        error => this.errorMsg = error);
   }
 
 indexEvents() {
@@ -86,6 +88,20 @@ indexEvents() {
 
   decode(data: string){
     return decodeURIComponent(data).replace(/\+/g, ' ');
+  }
+
+  requestVerify(){
+    // console.log(localStorage.getItem('accessToken'));
+    // this.http.get('http://13.250.248.175/api/email/resend', {headers:new HttpHeaders({
+    //   'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+    //   'Accept': 'application/json'
+    // })
+    // }).subscribe(data => {
+    //   console.log(data);
+    // })
+    this.auth.requestVerification().subscribe(data =>{
+      console.log(data);
+    })
   }
 
 

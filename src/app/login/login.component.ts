@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userName', data.success.name);
         localStorage.setItem('id', data.success.id);
         localStorage.setItem('email', data.success.email);
+        localStorage.setItem('verified', data.email_verified_at);
         alert('Welcome back, ' + this.auth.getUserName());
         this.router.navigate(['/dashboard']);
       },
