@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -75,6 +75,8 @@ import { CancelEventComponent } from './event-page/cancel-event/cancel-event.com
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: {hasBackdrop: false, direction: 'ltr'}
     },
+
+    ErrorHandler
   ],
   bootstrap: [AppComponent]
 })

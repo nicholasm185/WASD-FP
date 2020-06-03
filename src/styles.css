@@ -136,6 +136,9 @@ p{
 li{
   color: var(--font-color);
 }
+input:hover {
+  color: var(--label-color);
+}
 
 html, body{
   background-color: var(--bg-color);

@@ -13,6 +13,7 @@ export class BuyComponent implements OnInit {
   storedTheme: string = localStorage.getItem('theme');
   paymentMethods: any = Array('Cash', 'Transfer');
   qty = Array.from(Array(100).keys());
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   setTheme() {
     if (this.storedTheme === 'dark') {
@@ -42,7 +43,7 @@ export class BuyComponent implements OnInit {
     this.buyForm = this.fb.group({
       name: ['', [Validators.required]],
       event_id: ['', [Validators.required, Validators.minLength(13)]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       paymentMethod: ['', [Validators.required]],
       numTickets: ['', [Validators.required]],
 
@@ -61,15 +62,24 @@ export class BuyComponent implements OnInit {
     buyData.append('numTickets', this.buyForm.get('numTickets').value);
 
     console.log('inserting done');
-    this.buy.buyTicket(buyData).subscribe((event: any) => {
-      console.log(event);
-    });
+
     if (this.buyForm.invalid) {
       alert('Please fill in the required information');
     } else {
+      this.sendPurchase(buyData);
+    }
+  }
+
+  sendPurchase(buyData) {
+    this.buy.buyTicket(buyData).subscribe((event: any) => {
+      console.log(event);
       alert('Ticket succesfully purchased!');
       this.router.navigate(['/success']);
-    }
+    },
+    error => {
+      console.log(error);
+      alert('Failed to send your request to the server');
+    });
   }
 
   get paymentMethod() {

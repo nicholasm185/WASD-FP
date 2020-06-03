@@ -56,15 +56,24 @@ export class CancelComponent implements OnInit {
     cancelData.append('email', this.cancelForm.get('email').value);
 
     console.log('inserting done');
+
+    if (this.cancelForm.invalid) {
+      alert('Cancellation failed. Please recheck your information form');
+    } else {
+      this.sendCancellation(cancelData);
+    }
+  }
+
+  sendCancellation(cancelData) {
     this.buy.cancelTicket(cancelData).subscribe((event: any) => {
       console.log(event);
-    });
-    if (this.cancelForm.invalid) {
-      alert('Cancellation failed');
-    } else {
       alert('Ticket succesfully cancelled!');
       this.router.navigate(['/dashboard']);
-    }
+    },
+    error => {
+      console.log(error);
+      alert('Failed to cancel your purchase');
+    });
   }
 
   get event_id() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler, } from '@angular/core';
 import { FileUploadService } from '../../services/file-upload.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -84,16 +84,31 @@ export class FileUploadComponent implements OnInit {
     uploadData.append('event_id', this.proofForm.get('event_id').value);
     uploadData.append('paymentProof', this.fileToUpload, this.fileToUpload.name);
 
-    this.upload.uploadFile(uploadData).subscribe((event: any) => {
-      console.log(event);
-    });
+    if (this.proofForm.getError) {
+      console.log('what?');
+      alert('Your verification process failed');
+      return false;
+    }
+
     if (this.proofForm.invalid) {
       alert('Please fill in the required information');
     } else {
-      alert('Proofing complete!');
-      this.router.navigate(['/']);
+      this.sendProof(uploadData);
     }
   }
+
+  sendProof(uploadData) {
+    this.upload.uploadFile(uploadData).subscribe((event: any) => {
+      console.log(event);
+      alert('Proofing complete!');
+      this.router.navigate(['/']);
+    },
+    error => {
+      console.log(error);
+      alert('Failed to send your proof');
+    });
+  }
+
 
   preview() {
     const preview = this.fileToUpload.type;
@@ -134,4 +149,9 @@ export class FileUploadComponent implements OnInit {
       alert('Please recheck your credentials.');
     }
   }
+
+  handleError(error: Error) {
+    alert('Something happened...');
+    console.error('Oh no: ', error);
+ }
 }
