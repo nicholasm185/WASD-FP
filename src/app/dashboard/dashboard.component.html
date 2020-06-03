@@ -45,12 +45,12 @@
           <div class="col-xs-12 col-md-10 offset-md-1">
             <!--<img [src]="image" class="user-img" />-->
             <h2> Hi, {{ auth.getUserName() }} </h2>
-            <p>bio</p>
+            <!--<p>bio</p>-->
             <h4>Basic Info</h4>
             <hr width="200%">
             <div>
-              <h5>Name: {{auth.getUserName()}}<tr></h5>
-              <h5>Email: {{auth.getEmail()}}</h5>
+              <h5>Name: <b>{{auth.getUserName()}}</b><tr></h5>
+              <h5>Email: <b>{{auth.getEmail()}}</b></h5>
               <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">verify email</button>
               <p *ngIf="!!User['email_verified_at']">email verified!</p>
             </div>

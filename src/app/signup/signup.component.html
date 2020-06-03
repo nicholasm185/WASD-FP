@@ -51,18 +51,30 @@
               <div class="form-group" data-aos="fade-up" data-aos-delay="200">
                 <label for="name" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">person</i> Full Name</label>
                 <input type="text" class="form-control main-search" formControlName="name" id="name" required> <!--[class.is-invalid]="name.invalid && name.touched"-->
+                <small *ngIf="!signupForm.controls.name.valid" class="text-info">
+                  Please specify your full name
+                </small>
               </div>
               <div class="form-group" data-aos="fade-up" data-aos-delay="500">
                 <label for="email" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">email</i> Email</label>
                 <input type="email" class="form-control main-search" formControlName="email" id="email" required>
+                <small *ngIf="!signupForm.controls.email.valid" class="text-info">
+                  Please enter a valid email
+                </small>
               </div>
               <div class="form-group" data-aos="fade-up" data-aos-delay="700">
                 <label for="password" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i> Password</label>
                 <input type="password" class="form-control main-search" formControlName="password" id="password" required>
+                <small *ngIf="!signupForm.controls.password.valid" class="text-info">
+                  Please enter your password
+                </small>
               </div>
               <div class="form-group" data-aos="fade-up" data-aos-delay="900">
                 <label for="confPassword" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top">lock</i> Confirm Password</label>
                 <input type="password" class="form-control main-search" formControlName="confPassword" id="confPassword" required>
+                <small *ngIf="!signupForm.controls.password.valid" class="text-info">
+                  Please re-enter your password
+                </small>
               </div>
               <div class="mt-5 text-center" data-aos="fade-up" data-aos-delay="1100">
                 <button class="btn btn-green" type="submit" (click)='signup()'>Submit</button>

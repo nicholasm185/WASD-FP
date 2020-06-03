@@ -144,6 +144,9 @@ html, body{
   min-height: 100vh;
   width: flex;
 }
+.text {
+  color: var(--font-color);
+}
 
 /*div{
   height: 100%;
@@ -159,6 +162,8 @@ html, body{
   --hover-color: #aaed38;
   --label-color: #292922;
   --hr-color: #808888;
+  --border-color: #e0e0e0;
+  --tile-color: #f0f0f0;
 }
 
 .dark {
@@ -171,6 +176,8 @@ html, body{
   --hover-color: #aaed38;
   --label-color: #86C232;
   --hr-color: #86C232;
+  --border-color: #002714;
+  --tile-color: #004623;
 }
 
 html.transition,

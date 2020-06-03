@@ -101,6 +101,9 @@
             <div class="form-inline">
               <label class="mr-2">Email {{1+i}}</label>
               <input class="form-control mr-2" type="email" [formControlName]="i" data-aos="fade-up">
+              <small *ngIf="!eventForm.controls.contactEmails.valid" class="text">
+                Please enter a valid email
+              </small>
               <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removeEmail(i)">Remove email</button>
             </div>
           </div>
@@ -113,7 +116,10 @@
           <div class="mt-2" *ngFor="let phone of contactPhones.controls; let i = index">
             <div class="form-inline">
               <label class="mr-2">Contact {{1+i}}</label>
-              <input class="form-control mr-2" type="number" [formControlName]="i">
+              <input class="form-control mr-2" type="number" pattern="[0-9]+" maxlength="5" [formControlName]="i">
+              <small *ngIf="!eventForm.controls.contactPhones.valid" class="text">
+                Please enter a valid phone number
+              </small>
               <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removePhone(i)">Remove contact</button>
             </div>
           </div>

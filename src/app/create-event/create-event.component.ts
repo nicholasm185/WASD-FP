@@ -18,6 +18,7 @@ export class CreateEventComponent implements OnInit {
   minDate;
   eventPoster: File = null;
   previewUrl: any = null;
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   constructor(private fb: FormBuilder,
               private datePipe: DatePipe,
@@ -36,10 +37,10 @@ export class CreateEventComponent implements OnInit {
       venue: ['', [Validators.required, Validators.minLength(12)]],
       city: ['', [Validators.required]],
       contactEmails: this.fb.array([
-        this.fb.control('')
+        this.fb.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       ]),
       contactPhones: this.fb.array([
-        this.fb.control('')
+        this.fb.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(12)])
       ]),
     });
     this.eventForm.controls.startDate.valueChanges.subscribe(data => {
@@ -127,15 +128,24 @@ export class CreateEventComponent implements OnInit {
     eventData.append('picture',  this.eventPoster);
     console.log('inserting done');
 
-    this.upload.uploadEvent(eventData).subscribe((event: any) => {
-      console.log(event);
-    });
     if (this.eventForm.invalid) {
       alert('Please fill in the required information');
     } else {
+      this.generateEvent(eventData);
+    }
+  }
+
+
+  generateEvent(eventData) {
+    this.upload.uploadEvent(eventData).subscribe((event: any) => {
+      console.log(event);
       alert('Event succesfully created!');
       this.router.navigate(['/']);
-    }
+    },
+    error => {
+      console.log(error);
+      alert('Failed to create event');
+    });
   }
 
   onFileChanged(event) {

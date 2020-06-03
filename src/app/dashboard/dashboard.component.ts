@@ -3,17 +3,11 @@ import { AuthService } from '../services/auth.service';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
-import { Pipe, PipeTransform } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
 import { GetEventService } from '../services/get-event.service';
 import { Event } from '../interfaces/event';
-@Pipe({ name: 'values',  pure: false })
-export class ValuesPipe implements PipeTransform {
-  transform(value: any, args: any[] = null): any {
-    return Object.keys(value).map(key => value[key]);
-  }
-}
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -54,18 +48,6 @@ export class DashboardComponent implements OnInit {
     public router: Router,
     public route: ActivatedRoute) { }
 
-  /*ngOnInit(): void {
-    this.auth.getUserInfo().subscribe(
-      (data) => this.User = data);
-    console.log(data);
-  }*/
-
-  /*ngOnInit(): void {
-    this.http.get(this.url).toPromise().then(data => {
-      console.log(data);
-      });
-  }*/
-
   ngOnInit() {
     AOS.init();
     this.indexEvents();
@@ -86,15 +68,15 @@ indexEvents() {
   });
   }
 
-  decode(data: string){
+  decode(data: string) {
     return decodeURIComponent(data).replace(/\+/g, ' ');
   }
 
-  requestVerify(){
-    this.auth.requestVerification().subscribe(data =>{
+  requestVerify() {
+    this.auth.requestVerification().subscribe(data => {
       console.log(data);
-    })
-    alert("Please check your Email!");
+    });
+    alert('Please check your Email!');
   }
 
 

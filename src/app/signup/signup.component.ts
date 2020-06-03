@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import * as AOS from 'aos';
@@ -9,12 +9,13 @@ import * as AOS from 'aos';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   signupForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confPassword: new FormControl('')
+    name: new FormControl('', Validators.minLength(2)),
+    email: new FormControl('', Validators.pattern(this.emailPattern)),
+    password: new FormControl('', Validators.minLength(6)),
+    confPassword: new FormControl('', Validators.minLength(6))
   });
 
   storedTheme: string = localStorage.getItem('theme');
@@ -51,14 +52,16 @@ export class SignupComponent implements OnInit {
       (data: any) => {
         console.log(data);
         localStorage.setItem('accessToken', data.data.token);
-        alert('Registered successfully');
         localStorage.setItem('userName', data.data.name);
         localStorage.setItem('id', data.data.id);
         localStorage.setItem('email', data.data.email);
+        alert('Registered successfully');
         this.router.navigate(['/dashboard']);
       },
-      err => console.log(err)
-    );
+      err => {
+        console.log(err);
+        alert('Failed to Sign Up, Please check your credentials');
+      });
   }
 
 }
