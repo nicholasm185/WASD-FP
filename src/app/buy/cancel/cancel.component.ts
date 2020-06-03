@@ -45,6 +45,7 @@ export class CancelComponent implements OnInit {
 
     });
     this.cancelForm.get('event_id').setValue(this.route.snapshot.paramMap.get('event_id'));
+    AOS.init();
   }
 
   cancelTicket() {
