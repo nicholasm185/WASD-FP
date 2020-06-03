@@ -71,7 +71,7 @@
                 </h4>
             </li>
             </ul>
-            <div><h5>{{picturesrc}}</h5>
+            <div>
             <!--<a class="event-title" href="/event/{{events['event_id']}}">{{events['eventName']}}</a>
             <p>{{events['startDate']}}</p>
             <a class="text-danger" href="/cancelEvent/{{events['event_id']}}">Cancel Event</a>
@@ -82,9 +82,9 @@
                  {{ i['eventName'] }}
               </h4>
                <a href="/event/{{i['event_id']}}">
-                 <img src="{{ decode(i['picture']) }}" width="200" height="200">
+                 <img src="{{ decode(i['picture']) }}" width="300" height="300">
                </a>
-               <h5>{{i['picturesrc']}}</h5>
+               
                <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
 
             </div>
