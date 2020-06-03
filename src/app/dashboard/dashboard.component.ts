@@ -91,17 +91,10 @@ indexEvents() {
   }
 
   requestVerify(){
-    // console.log(localStorage.getItem('accessToken'));
-    // this.http.get('http://13.250.248.175/api/email/resend', {headers:new HttpHeaders({
-    //   'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
-    //   'Accept': 'application/json'
-    // })
-    // }).subscribe(data => {
-    //   console.log(data);
-    // })
     this.auth.requestVerification().subscribe(data =>{
       console.log(data);
     })
+    alert("Please check your Email!");
   }
 
 
