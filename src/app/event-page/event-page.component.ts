@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {GetEventService} from '../services/get-event.service';
 import * as AOS from 'aos';
-
+// import { CountdownTimerModule } from 'ngx-countdown-timer-date/dist';
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
@@ -11,6 +11,7 @@ import * as AOS from 'aos';
 export class EventPageComponent implements OnInit {
 
   event_id;
+  eventExpire = false;
   data;
   picturesrc: string;
 
@@ -27,6 +28,12 @@ export class EventPageComponent implements OnInit {
       console.log(this.data);
     });
 
+  }
+
+  timesUp() {
+    this.eventExpire = true;
+    console.log('countdown done');
+    alert('This event has been held.');
   }
 
 }

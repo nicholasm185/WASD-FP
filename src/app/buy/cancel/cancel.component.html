@@ -37,15 +37,15 @@
 </div>
 
 <body>
-<div class="container">
+<div class="container" data-aos="fade" data-aos-delay="100">
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md">
 
-    <h2 class="h2">Ticket Cancellation</h2><tr><i><p>Please note that this process cannot be undone.</p></i></tr>
+    <h2 class="h2" data-aos="fade" data-aos-delay="100">Ticket Cancellation</h2><tr><i><p>Please note that this process cannot be undone.</p></i></tr>
       <form [formGroup]="cancelForm" novalidate (ngSubmit)="submit()">
         <hr>
-        <div class="form-group">
+        <div class="form-group" data-aos="fade" data-aos-delay="100">
           <label for="event_id" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top"></i>Event ID</label>
           <input class="form-control main-search" placeholder="The unique code of your Event" type="text" formControlName="event_id" id="event_id">
           <small *ngIf="!cancelForm.controls.event_id.valid" class="text-danger">
@@ -54,7 +54,7 @@
           <hr>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade" data-aos-delay="300">
           <label for="name">Your attendee ID</label>
           <input class="form-control main-search" placeholder="The ID given when you purchased your ticket" type="number" formControlName="attendee_id" id="attendee_id">
           <small *ngIf="!cancelForm.controls.attendee_id.valid" class="text-danger">
@@ -62,7 +62,7 @@
           </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" data-aos="fade" data-aos-delay="700">
           <label for="eventDescription">Email</label>
           <input class="form-control main-search" placeholder="The email used in purchasing your ticket" type="email" formControlName="email" id="email">
           <small *ngIf="!cancelForm.controls.email.valid" class="text-danger">
@@ -73,7 +73,7 @@
         <div class="output"></div>
 
         <div class="center">
-        <button type="button" (click)="submit()" class="btn btn-danger mt-5">Cancel Purchase</button>
+        <button type="button" (click)="submit()" class="btn btn-danger mt-5" data-aos="fade" data-aos-delay="700">Cancel Purchase</button>
       </div>
       </form>
     </div>

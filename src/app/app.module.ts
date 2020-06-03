@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +59,8 @@ import { CancelEventComponent } from './event-page/cancel-event/cancel-event.com
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    CountdownTimerModule,
   ],
   providers: [
     AuthService,

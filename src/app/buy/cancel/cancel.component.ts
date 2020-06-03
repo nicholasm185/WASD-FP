@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BuyService } from '../../services/buy.service';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-cancel',
   templateUrl: './cancel.component.html',
