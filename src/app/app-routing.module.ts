@@ -15,6 +15,7 @@ import { SuccessComponent } from './buy/success/success.component';
 import { CancelComponent } from './buy/cancel/cancel.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { CancelEventComponent } from './event-page/cancel-event/cancel-event.component';
+import { EventSuccessComponent } from './create-event/event-success/event-success.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'buy/:event_id', component: BuyComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'success', component: SuccessComponent},
+  {path: 'eventsuccess', component: EventSuccessComponent},
   {path: 'cancel', component: CancelComponent},
   {path: 'cancel/:event_id', component: CancelComponent},
   {path: 'cancelEvent', component: CancelEventComponent, canActivate: [AuthGuard]},

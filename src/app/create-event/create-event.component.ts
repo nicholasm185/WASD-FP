@@ -77,6 +77,10 @@ export class CreateEventComponent implements OnInit {
     return this.eventForm.get('contactPhones') as FormArray;
   }
 
+  getEventId() {
+    return this.eventForm.get('event_id');
+  }
+
   addPhone() {
     if (this.contactPhones.length < 3) {
       this.contactPhones.push(this.fb.control(''));
@@ -140,7 +144,7 @@ export class CreateEventComponent implements OnInit {
     this.upload.uploadEvent(eventData).subscribe((event: any) => {
       console.log(event);
       alert('Event succesfully created!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/eventsuccess']);
     },
     error => {
       console.log(error);

@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
 
 export class FileUploadService {
 
-  proofUrl = 'http://13.250.248.175/api/attendee/upload';
-  eventUrl = 'http://13.250.248.175/api/events/create';
+  proofUrl = 'https://backend.ticketmaya.me/api/attendee/upload';
+  eventUrl = 'https://backend.ticketmaya.me/api/events/create';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 

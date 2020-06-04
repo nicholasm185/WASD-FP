@@ -11,6 +11,10 @@
   font-family: Nunito-light;
   src: url("/assets/Nunito-light.ttf");
 }
+@font-face {
+  font-family: Ethno;
+  src: url("/assets/Ethno.ttf");
+}
 
 .btn-green{
   background-color: #61892F;
@@ -77,8 +81,10 @@ a:link{
 }
 
 .brand-font .accent{
-  color: #aaed38;
+  color: #ed9838;
   background-color: var(--hr-color);
+  font-family: Ethno;
+  font-size: 20px;
 }
 .brand-font:hover{
   color: #aaed38;
@@ -167,6 +173,7 @@ html, body{
   --hr-color: #808888;
   --border-color: #e0e0e0;
   --tile-color: #f0f0f0;
+  --tile1-color: #dbdbdb;
 }
 
 .dark {
@@ -181,6 +188,7 @@ html, body{
   --hr-color: #86C232;
   --border-color: #002714;
   --tile-color: #004623;
+  --tile1-color: #002714;
 }
 
 html.transition,

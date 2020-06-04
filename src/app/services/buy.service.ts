@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
 
 export class BuyService {
 
-  buyUrl = 'http://13.250.248.175/api/attendee/register';
-  cancelUrl = 'http://13.250.248.175/api/attendee/cancel';
+  buyUrl = 'https://backend.ticketmaya.me/api/attendee/register';
+  cancelUrl = 'https://backend.ticketmaya.me/api/attendee/cancel';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 
