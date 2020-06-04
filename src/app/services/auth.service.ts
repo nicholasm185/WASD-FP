@@ -15,8 +15,8 @@ export class AuthService {
   accessToken: String;
   userName: string;
   private loggedIn = new BehaviorSubject<boolean>(false);
-  private userUrl = 'http://13.250.248.175/api/user';
-  private verifyUrl = 'http://13.250.248.175/api/email/resend';
+  private userUrl = 'https://backend.ticketmaya.me/api/user';
+  private verifyUrl = 'https://backend.ticketmaya.me/api/email/resend';
   private proofUrl: string;
 
   public name: [string];
@@ -28,7 +28,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     this.loggedIn.next(true);
-    return this.http.post('http://13.250.248.175/api/login',
+    return this.http.post('https://backend.ticketmaya.me/api/login',
     {
       email: email,
       password: password,
@@ -39,7 +39,7 @@ export class AuthService {
 
   signup(name: string, email: string, password: string, c_password: string) {
     this.loggedIn.next(true);
-    return this.http.post('http://13.250.248.175/api/register',
+    return this.http.post('https://backend.ticketmaya.me/api/register',
     {
       name: name,
       email: email,

@@ -29,6 +29,7 @@ import { SuccessComponent } from './buy/success/success.component';
 import { CancelComponent } from './buy/cancel/cancel.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { CancelEventComponent } from './event-page/cancel-event/cancel-event.component';
+import { EventSuccessComponent } from './create-event/event-success/event-success.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { CancelEventComponent } from './event-page/cancel-event/cancel-event.com
     CancelComponent,
     EventPageComponent,
     CancelEventComponent,
+    EventSuccessComponent,
   ],
   imports: [
     BrowserModule,

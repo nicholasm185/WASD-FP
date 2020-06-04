@@ -1,0 +1,9 @@
+
+.col-md {
+    background-color: var(--tile1-color);
+    border-radius: 25px;
+}
+
+.center {
+    margin: 30px;
+}

@@ -6,9 +6,9 @@ import { HttpClient, HttpHeaders, HttpEventType, HttpRequest, HttpErrorResponse 
 })
 export class GetEventService {
 
-  private url = 'http://13.250.248.175/api/events/show/';
-  private showEventsUrl = 'http://13.250.248.175/api/events/showAll';
-  private cancelUrl = 'http://13.250.248.175/api/events/delete/';
+  private url = 'https://backend.ticketmaya.me/api/events/show/';
+  private showEventsUrl = 'https://backend.ticketmaya.me/api/events/showAll';
+  private cancelUrl = 'https://backend.ticketmaya.me/api/events/delete/';
 
   constructor(public http: HttpClient) { }
 
