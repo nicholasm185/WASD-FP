@@ -84,11 +84,11 @@ export class FileUploadComponent implements OnInit {
     uploadData.append('event_id', this.proofForm.get('event_id').value);
     uploadData.append('paymentProof', this.fileToUpload, this.fileToUpload.name);
 
-    if (this.proofForm.getError) {
-      console.log('what?');
-      alert('Your verification process failed');
-      return false;
-    }
+    // if (this.proofForm.getError) {
+    //   console.log('what?');
+    //   alert('Your verification process failed');
+    //   return false;
+    // }
 
     if (this.proofForm.invalid) {
       alert('Please fill in the required information');
