@@ -40,12 +40,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md" data-aos="fade" data-aos-delay="400">
+    <div class="col-md" data-aos="fade" data-aos-delay="100">
 
     <h2 class="h2" data-aos="fade-up">Buy Ticket</h2>
       <form [formGroup]="buyForm" novalidate (ngSubmit)="submit()">
 
-        <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="200">
           <label for="event_id" style="font-weight: bolder"><i class="material-icons" style="vertical-align: top"></i>Event ID</label>
           <input class="form-control main-search" required placeholder="The unique code of your Event" type="text" formControlName="event_id" id="event_id">
           <small *ngIf="!buyForm.controls.event_id.valid" class="text-danger">

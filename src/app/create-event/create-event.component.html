@@ -40,12 +40,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md" data-aos="fade" data-aos-delay="400">
+    <div class="col-md" data-aos="fade" data-aos-delay="100">
 
     <h2 class="h2" data-aos="fade-up">New Event</h2>
       <form [formGroup]="eventForm" novalidate>
 
-        <div class="form-group" data-aos="fade-up">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
           <label for="name">Event Name</label>
           <input class="form-control main-search" type="text" formControlName="name" id="name">
           <small *ngIf="!eventForm.controls.name.valid" class="text-danger">
@@ -53,7 +53,7 @@
           </small>
         </div>
         <hr data-aos="fade-up">
-        <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
           <label for="startDate">Start Date</label>
           <input class="form-control main-search" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
           <small *ngIf="!eventForm.controls.startDate.valid" class="text-danger">
@@ -61,7 +61,7 @@
           </small>
         </div>
 
-        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
           <label for="endDate">End Date</label>
           <input class="form-control main-search" type="datetime-local" formControlName="endDate" id="endDate">
           <small *ngIf="!eventForm.controls.endDate.valid" class="text-danger">

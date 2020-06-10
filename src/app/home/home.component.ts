@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { OwlModule, OwlCarousel } from 'ngx-owl-carousel';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,6 +8,8 @@ import * as AOS from 'aos';
 })
 export class HomeComponent implements OnInit {
 
+  SlideOptions = { items: 1, dots: true, nav: true };
+  CarouselOptions = { items: 3, dots: true, nav: true };
   storedTheme: string = localStorage.getItem('theme');
   setTheme() {
     if (this.storedTheme === 'dark') {
@@ -31,6 +34,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     AOS.init();
+
   }
+
 
 }

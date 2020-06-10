@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ import { EventSuccessComponent } from './create-event/event-success/event-succes
     MatDialogModule,
     MatButtonModule,
     CountdownTimerModule,
+    OwlModule
   ],
   providers: [
     AuthService,

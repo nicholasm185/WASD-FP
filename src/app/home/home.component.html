@@ -1,5 +1,5 @@
 <!--<!DOCTYPE html>-->
-<html lang="en" class="{{storedTheme}}" role="main">
+<!--<html lang="en" class="{{storedTheme}}" role="main">
 
 <head>
     <script>
@@ -29,9 +29,9 @@
 
 <div class="col-md-12 text-right">
     <div class="theme-switcher-wrap">
-          <!--<input type="checkbox" id="checkbox" />-->
+          <input type="checkbox" id="checkbox" />
           <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
-            <!--<div class="slider round"></div>-->
+            <div class="slider round"></div>
             <div class="switch-path"></div>
             <div class="switch-handle"></div>
           </label>
@@ -44,6 +44,250 @@
 
 <body>
   Test
+</body>
+
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Welcome :: ticketMaya</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+   Google Fonts 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   Vendor CSS Files 
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+-->
+
+</head>
+
+<body>
+
+  <!-- ======= Header =======
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="index.html">Sailor</a></h1>
+     Uncomment below if you prefer to use an image logo 
+ <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="drop-down"><a href="#">About</a>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+
+              <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+      </nav> .nav-menu
+
+      <a href="index.html" class="get-started-btn ml-auto">Get Started</a>
+
+    </div>
+  </header> End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-aos="fade">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(https://wallpaperaccess.com/full/1155050.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 data-aos="fade-up" data-aos-delay="300">Welcome to <span>ticketMaya</span></h2>
+              <p data-aos="fade" data-aos-delay="500">Your one stop event service</p>
+              <a href="/search" class="btn-get-started" data-aos="fade-up" data-aos-delay="1900">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url()">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Discover</h2>
+              <p class="animate__animated animate__fadeInUp">Go and venture into different new challenges. Appreciate your friends and colleagues by participating in your agenda. You'll never know what to expect next.</p>
+              <a href="/search" class="btn-get-started animate__animated animate__fadeInUp scrollto">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-color: darkolivegreen">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Endless Possibility</h2>
+              <p class="animate__animated animate__fadeInUp">Making an event has never been this simple. All with several clicks away, you could go and host the events of your wildest dreams.</p>
+              <a href="/search" class="btn-get-started animate__animated animate__fadeInUp scrollto">Explore</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>Event. Even. Simpler.</h2>
+            <h3>Your platform in making your events a moment not to forget.</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Introducing ticketMaya, a simple, friendly application specially crafted and designed to cater you event-maniacs. In managing and simplifying your never ending daily chores, all day, for anyone, anywhere, anytime.
+            </p>
+            <p class="font-italic">
+              Sign Up and enjoy these benefits and plus points instantly.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Create events at your requests</li>
+              <li><i class="ri-check-double-line"></i> Manage your events like a pro</li>
+              <li><i class="ri-check-double-line"></i> Arrange and organize payments to ensure validity</li>
+            </ul>
+            <div class="container">
+            <a href="/signup" class="btn-get-started">Sign Up</a>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="section-title">
+          <h2>Service</h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Why ticketMaya?</h3>
+              <p>
+                There are definitely reasons why you opt to choose ticketMaya in handling your daily event activities. Here are factors you must know why.
+              </p>
+              <div class="text-center">
+                <a href="/" class="more-btn"> >> <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="700">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4>Put a reason here</h4>
+                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="1100">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cube-alt"></i>
+                    <h4>Put another reason here</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="1300">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-images"></i>
+                    <h4>Put yet another reason here</h4>
+                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+
+      </div>
+
+    </div>
+    </section><!-- End Services Section -->
+
+
+  </main><!-- End #main -->
+
+
+  <!--<a href="#" class="btn-get-started back-to-top"><i class="btn btn-dark">Back to Top</i></a>-->
+
+  <!-- Vendor JS Files
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+   Template Main JS File 
+  <script src="assets/js/main.js"></script>-->
+
 </body>
 
 </html>
