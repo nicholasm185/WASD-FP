@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpEventType, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Http, ResponseContentType } from '@angular/http';
 import { Observable } from 'rxjs';
+import { saveAs } from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,8 +32,23 @@ export class GetEventService {
     return this.http.get(this.downloadProof + {event_id, responseType: ResponseContentType.ArrayBuffer});
   }
 
-  downloadFile(event_id: string): Observable<any> {
-    return this.http.post(this.downloadCSV, {event_id, responseType: ResponseContentType.Blob});
+  downloadExcel(event_id: string) {
+    return this.http.post(this.downloadCSV,
+    {
+      event_id: event_id,
+    }, {responseType: 'blob'}).subscribe(data => {
+      { 
+        saveAs(data, event_id+'-attendees'+'.xlsx', 
+        { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
+    }})
+  }
+
+  downloadZIP(event_id: string) {
+    return this.http.get(this.downloadProof+event_id,
+    {responseType: 'blob'}).subscribe(data => {
+      { 
+        saveAs(data, event_id+'-proof'+'.zip')
+    }})
   }
 
 }

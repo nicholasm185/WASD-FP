@@ -82,12 +82,12 @@
                  {{ i['eventName'] }}
               </h4>
                <a href="/event/{{i['event_id']}}">
-                 <img src="{{ decode(i['picture']) }}" width="300" height="300">
+                 <img src="{{ decode(i['picture']) }}" width="10px" height="10px">
                </a>
                
                <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
-               <button (click)="downloadCSV3()">Download CSV</button>
-               <button (click)="dwZip()">Download Proof</button>
+               <button (click)="downloadCSV(i['event_id'])">Attendee Data</button>
+               <button (click)="dwZip(i['event_id'])">Download Proof</button>
             </div>
 
             </div>
