@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
-import * as fileSaver from 'file-saver';
+import { saveAs } from 'file-saver';
 import { GetEventService } from '../services/get-event.service';
 import { Event } from '../interfaces/event';
 import { Http, ResponseContentType } from '@angular/http';
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
     public http: HttpClient,
     public get: GetEventService,
     public router: Router,
-    public route: ActivatedRoute) { }
+    public route: ActivatedRoute,) { }
 
   ngOnInit() {
     AOS.init();
@@ -82,53 +82,10 @@ indexEvents() {
   }
 
 
-  downloadCSV3(event_id): Observable<any> {
-    console.log('hello?');
-    event_id = this.setEventId();
-    return this.http.post('https://backend.ticketmaya.me/api/attendee/downloadCSV',
-    {
-      event_id: event_id,
-      responseType: ResponseContentType.Blob
-    });
-
+  downloadCSV(event_id){
+    console.log(event_id);
+    return this.get.downloadExcel(event_id);
   }
-
-  downloadCSV2(event_id: string) {
-    this.get.downloadFile(event_id).subscribe(response => {
-      window.location.href = response.url;
-    }),
-      error => console.log('Error downloading the file'),
-        () => console.info('File downloaded successfully');
-  }
-
-  downloadCSV(event_id) {
-    this.get.downloadFile(event_id).subscribe(response => {
-      // let blob: any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
-      // const url = window.URL.createObjectURL(blob);
-      // window.open(url);
-      // window.location.href = response.url;
-      this.downloadFile(response);
-      // fileSaver.saveAs(blob, 'employees.json');
-    }),
-    error => console.log('Error downloading the file'),
-    () => console.info('File downloaded successfully');
-  }
-
-  downloadFile(data: Response) {
-    const blob = new Blob([data], { type: 'application/octet-stream' });
-    const url = window.URL.createObjectURL(blob);
-    window.open(url);
-  }
-
-  /*downloadProof() {
-    this.get.downloadPaymentProof(this.event_id).subscribe((data: any) => {
-      this.event_id = data['event_id'];
-    },
-    error => {
-      console.log(error);
-      alert('Failed to download');
-    });
-  }*/
 
   setEventId() {
     this.event_id = this.events['event_id'];
@@ -139,15 +96,8 @@ indexEvents() {
   }
 
   dwZip(event_id) {
-    this.get.downloadPaymentProof(event_id).subscribe(data => {
-      //this.event_id = this.getEventId();
-      console.log('hi', data);
-    });
-  }
-
-  downloadZip(event_id: string) {
-    return this.http.get('https://backend.ticketmaya.me/api/attendee/dproof/' + {event_id, responseType: ResponseContentType.ArrayBuffer})
-      .subscribe(res => res);
+    console.log(event_id);
+    this.get.downloadZIP(event_id);
   }
 
 }
