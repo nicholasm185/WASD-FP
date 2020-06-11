@@ -39,26 +39,28 @@
 <p>Dashboard</p>
 <div class="profile-page">
 
-    <div class="user-info" data-aos="fade-up" data-aos-delay="200">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-10 offset-md-1">
-            <!--<img [src]="image" class="user-img" />-->
-            <h2> Hi, {{ auth.getUserName() }} </h2>
-            <!--<p>bio</p>-->
-            <h4>Basic Info</h4>
-            <hr width="200%">
-            <div>
-              <h5>Name: <b>{{auth.getUserName()}}</b><tr></h5>
-              <h5>Email: <b>{{auth.getEmail()}}</b></h5>
-              <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">verify email</button>
-              <p *ngIf="!!User['email_verified_at']">email verified!</p>
-            </div>
-
-          </div>
+  <div class="container">
+    <div class="fb-profile" data-aos="fade-up" data-aos-delay="200">
+        <img align="left" data-aos="fade-up" data-aos-delay="600" class="fb-image-lg" src="https://i.pinimg.com/originals/69/98/fd/6998fd867b0eaed370b95607cb8be8a6.jpg" alt="Profile image example"/>
+        <img align="left" data-aos="fade-up" data-aos-delay="600" class="fb-image-profile thumbnail" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="Profile image example"/>
+        <div class="fb-profile-text" data-aos="fade-up" data-aos-delay="500">
+            <h1> Hi, {{ auth.getUserName() }}</h1>
+            <p>Hello world</p>
         </div>
-      </div>
+        <h4>Basic Info</h4>
+            <hr width="200%">
+            <div class="col-xs-12">
+              <h5>Name: <b>{{auth.getUserName()}}</b><tr></h5>
+                <div class="verify">
+                  <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">Verify email</button>
+                  <p *ngIf="!!User['email_verified_at']">Email Verified!</p></div>
+              <h5>Email: <b>{{auth.getEmail()}}</b></h5>
+              
+            </div>
     </div>
+    </div>
+
+    
     <hr width="100%" data-aos="fade-up" data-aos-delay="300">
     <div class="container" data-aos="fade-up" data-aos-delay="500">
       <div class="row">

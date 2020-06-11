@@ -22,6 +22,8 @@ div.gallery:hover {
 div.gallery img {
     width: 100%;
     height: auto;
+    max-height: 200px;
+   
 }
 
 div.desc {
@@ -29,4 +31,50 @@ div.desc {
     font-weight: 300;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.profile-page .container {
+    background-color: var(--tile-color);
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;
+    max-height: 400px;  
+    margin-bottom: 10px;
+    border-radius: 25px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%;
+    border-radius: 25px;
+}
+
+@media (max-width:768px)
+{
+    
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+}
+
+.verify {
+    position: absolute;
+    right: 0;
+    
 }
