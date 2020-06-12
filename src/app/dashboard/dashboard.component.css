@@ -3,7 +3,7 @@ div.gallery {
     border: 1px solid var(--border-color);
     float: left;
     width: 200px;
-    height: 300px;
+    height: 100%;
     background-color: var(--tile-color);
     border-radius: 25px;
     transition: all 250ms !important;
@@ -13,7 +13,7 @@ div.gallery {
 div.gallery.old:hover {
     width: 225px;
     overflow: hidden;
-    height: 325px;
+    height: 110%px;
     transition: all 250ms !important;
     transition-delay: 0 !important;
 }

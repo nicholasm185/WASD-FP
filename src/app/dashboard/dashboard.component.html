@@ -36,16 +36,13 @@
 </div>
 </div>
 
-<p>Dashboard</p>
 <div class="profile-page">
 
   <div class="container">
     <div class="fb-profile" data-aos="fade-up" data-aos-delay="200">
         <img align="left" data-aos="fade-up" data-aos-delay="600" class="fb-image-lg" src="https://i.pinimg.com/originals/69/98/fd/6998fd867b0eaed370b95607cb8be8a6.jpg" alt="Profile image example"/>
-        <img align="left" data-aos="fade-up" data-aos-delay="600" class="fb-image-profile thumbnail" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="Profile image example"/>
         <div class="fb-profile-text" data-aos="fade-up" data-aos-delay="500">
             <h1> Hi, {{ auth.getUserName() }}</h1>
-            <p>Hello world</p>
         </div>
         <h4>Basic Info</h4>
             <hr width="200%">
@@ -88,9 +85,14 @@
                </a>
                
                <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
+<<<<<<< HEAD
                <a href="/update/{{i['event_id']}}">Update Event</a>
                <button (click)="downloadCSV(i['event_id'])">Attendee Data</button>
                <button (click)="dwZip(i['event_id'])">Download Proof</button>
+=======
+               <button class="btn btn-primary" (click)="downloadCSV(i['event_id'])">Attendee Data</button>
+               <button class="btn btn-primary" (click)="dwZip(i['event_id'])">Download Proof</button>
+>>>>>>> 5d4c567ed58b89ef3e02a56c1b825516e62ddd7b
             </div>
 
             </div>
