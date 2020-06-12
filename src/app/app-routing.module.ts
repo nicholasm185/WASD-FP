@@ -37,6 +37,7 @@ const routes: Routes = [
 
   {path: 'proofing/:event_id/:id/:email', component: FileUploadComponent},
   {path: 'proofing', component: FileUploadComponent},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   {path: '**', component: ImLostComponent}
 ];
 
