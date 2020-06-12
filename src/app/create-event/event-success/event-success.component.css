@@ -5,7 +5,7 @@
   body {
     display: flex;
     align-items: center;
-    background: #dbdbdb;
+    background: var(--background-color);
     min-width: 375px;
     height: 100vh;
     margin: 0 10vw;
@@ -20,7 +20,7 @@
     height:100%;
     max-width: 800px;
     margin: auto;
-    background-color: whitesmoke;
+    background-color: var(--tile1-color);
     border-radius: 25px;
   }
   
@@ -103,4 +103,13 @@
       margin: 0 5vw;
     }
   }
+
+.col-md {
+  background-color: var(--tile1-color);
+  border-radius: 25px;
+}
+
+.center {
+  margin: 30px;
+}
   

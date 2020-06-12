@@ -37,18 +37,18 @@ export class GetEventService {
     {
       event_id: event_id,
     }, {responseType: 'blob'}).subscribe(data => {
-      { 
-        saveAs(data, event_id+'-attendees'+'.xlsx', 
-        { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
-    }})
+      {
+        saveAs(data, event_id + '-attendees' + '.xlsx',
+        { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    }});
   }
 
   downloadZIP(event_id: string) {
-    return this.http.get(this.downloadProof+event_id,
+    return this.http.get(this.downloadProof + event_id,
     {responseType: 'blob'}).subscribe(data => {
-      { 
-        saveAs(data, event_id+'-proof'+'.zip')
-    }})
+      {
+        saveAs(data, event_id + '-proof' + '.zip');
+    }});
   }
 
 }

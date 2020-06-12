@@ -53,7 +53,7 @@
               <h5>Name: <b>{{auth.getUserName()}}</b><tr></h5>
                 <div class="verify">
                   <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">Verify email</button>
-                  <p *ngIf="!!User['email_verified_at']">Email Verified!</p></div>
+                  <button class="btn btn-outline-success" *ngIf="!!User['email_verified_at']">Email Verified!</button></div>
               <h5>Email: <b>{{auth.getEmail()}}</b></h5>
               
             </div>
@@ -88,6 +88,7 @@
                </a>
                
                <div class="desc"><h6> @{{ i['venue'] }} </h6></div>
+               <a href="/update/{{i['event_id']}}">Update Event</a>
                <button (click)="downloadCSV(i['event_id'])">Attendee Data</button>
                <button (click)="dwZip(i['event_id'])">Download Proof</button>
             </div>

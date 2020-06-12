@@ -7,8 +7,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
 import { saveAs } from 'file-saver';
 import { GetEventService } from '../services/get-event.service';
-import { Event } from '../interfaces/event';
-import { Http, ResponseContentType } from '@angular/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

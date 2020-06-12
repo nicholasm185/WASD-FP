@@ -715,6 +715,10 @@ body {
 
   .services .icon-box:hover {
     border: 1px solid #aaed38;
+    transition: color 0.3s linear;
+    -webkit-transition: color 0.3s linear;
+    -moz-transition: color 0.3s linear;
+    transition: .3s;
   }
   
   .services .icon-box i {

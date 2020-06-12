@@ -29,6 +29,7 @@ export class CreateEventComponent implements OnInit {
 
   ngOnInit(): void {
     AOS.init();
+    localStorage.setItem('theme', 'light');
     this.eventForm = this.fb.group({
       name: ['', [Validators.required]],
       eventDescription: ['', [Validators.required, Validators.minLength(12)]],
@@ -117,7 +118,7 @@ export class CreateEventComponent implements OnInit {
     eventData.append('email1', this.eventForm.get('contactEmails.0').value);
     if (this.eventForm.get('contactEmails.1') != null) {
       eventData.append('email2', this.eventForm.get('contactEmails.1').value);
-      if (this.eventForm.get('contactEmails.1') != null) {
+      if (this.eventForm.get('contactEmails.2') != null) {
       eventData.append('email3', this.eventForm.get('contactEmails.2').value);
       }
     }
@@ -141,7 +142,7 @@ export class CreateEventComponent implements OnInit {
 
 
   generateEvent(eventData) {
-    this.upload.uploadEvent(eventData).subscribe((event: any) => {
+    this.upload.createEvent(eventData).subscribe((event: any) => {
       console.log(event);
       alert('Event succesfully created!');
       this.router.navigate(['/eventsuccess']);

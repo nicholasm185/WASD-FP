@@ -1,0 +1,157 @@
+<html lang="en" class="{{storedTheme}}" role="main">
+<head>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input');
+
+          function switchTheme(e) {
+              if(e.target.checked) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  localStorage.setItem('data-theme', 'dark'); //add this
+              }
+              else{
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  localStorage.setItem('data-theme', 'light'); //add this
+              }
+            }
+          toggleSwitch.addEventListener('change', switchTheme, false);
+          const currentTheme = localStorage.getItem('data-theme');
+          if (currentTheme) {
+              document.documentElement.setAttribute('data-theme', currentTheme);
+
+              if (currentTheme === 'dark') {
+                  toggleSwitch.checked = true;
+                }
+              };
+      </script>
+</head>
+
+<div class="col-md-12 text-right">
+  <div class="theme-switcher-wrap">
+        <!--<input type="checkbox" id="checkbox" />-->
+        <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
+          <!--<div class="slider round"></div>-->
+          <div class="switch-path"></div>
+          <div class="switch-handle"></div>
+        </label>
+</div>
+</div>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md" data-aos="fade" data-aos-delay="100">
+
+    <h2 class="h2" data-aos="fade-up">Modify Event</h2>
+      <form [formGroup]="eventUpdateForm" novalidate>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+            <label for="name">Event ID</label>
+            <input class="form-control main-search" readonly type="text" formControlName="event_id" id="event_id">
+        </div>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+          <label for="name">Event Name</label>
+          <input class="form-control main-search" type="text" formControlName="name" id="name">
+          <small *ngIf="!eventUpdateForm.controls.name.valid" class="text-danger">
+            Please add your event name.
+          </small>
+        </div>
+        <hr data-aos="fade-up">
+        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+          <label for="startDate">Start Date</label>
+          <input class="form-control main-search" type="datetime-local" min="{{minDate}}" formControlName="startDate" id="startDate">
+          <small *ngIf="!eventUpdateForm.controls.startDate.valid" class="text-danger">
+            Please determine your event's starting date
+          </small>
+        </div>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
+          <label for="endDate">End Date</label>
+          <input class="form-control main-search" type="datetime-local" formControlName="endDate" id="endDate">
+          <small *ngIf="!eventUpdateForm.controls.endDate.valid" class="text-danger">
+            Please determine your end date
+          </small>
+        </div>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
+          <label for="eventDescription">Event Description</label>
+          <textarea rows="5" class="form-control main-search" type="text" formControlName="eventDescription" id="eventDescription">Event Description</textarea>
+          <small *ngIf="!eventUpdateForm.controls.eventDescription.valid" class="text-danger">
+            Please provide a brief description about your event!
+          </small>
+        </div>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="700">
+          <label for="location">Event Venue</label>
+          <input class="form-control main-search" type="text" formControlName="venue" id="venue">
+          <small *ngIf="!eventUpdateForm.controls.venue.valid" class="text-danger">
+            Please specify where your event will be held
+          </small>
+        </div>
+
+        <div class="form-group" data-aos="fade-up" data-aos-delay="900">
+          <label for="location">Event City</label>
+          <input class="form-control main-search" type="text" formControlName="city" id="city" data-aos="fade-up">
+          <small *ngIf="!eventUpdateForm.controls.city.valid" class="text-danger">
+            Please specify which city your event will be held
+          </small>
+        </div>
+
+        <div formArrayName="contactEmails" data-aos="fade-up" data-aos-delay="1100">
+          <div class="text-right">
+            <button class="btn btn-green" (click)="addEmail()">Add another email</button>
+          </div>
+          <div class="mt-2" *ngFor="let email of contactEmails.controls; let i = index">
+            <div class="form-inline">
+              <label class="mr-2">Email {{1+i}}</label>
+              <input class="form-control mr-2" type="email" [formControlName]="i" data-aos="fade-up">
+              <small *ngIf="!eventUpdateForm.controls.contactEmails.valid" class="text">
+                Please enter a valid email
+              </small>
+              <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removeEmail(i)">Remove email</button>
+            </div>
+          </div>
+        </div>
+
+        <div formArrayName="contactPhones" data-aos="fade-up" data-aos-delay="1100">
+          <div class="text-right">
+            <button class="btn btn-green" (click)="addPhone()">Add another phone</button>
+          </div>
+          <div class="mt-2" *ngFor="let phone of contactPhones.controls; let i = index">
+            <div class="form-inline">
+              <label class="mr-2">Contact {{1+i}}</label>
+              <input class="form-control mr-2" type="number" pattern="[0-9]+" maxlength="5" [formControlName]="i">
+              <small *ngIf="!eventUpdateForm.controls.contactPhones.valid" class="text">
+                Please enter a valid phone number
+              </small>
+              <button *ngIf="i>=1" class="btn btn-outline-danger" (click)="removePhone(i)">Remove contact</button>
+            </div>
+          </div>
+        </div>
+        <hr data-aos="fade-up" data-aos-delay="100">
+        <tr>
+        <h3 data-aos="fade-up">Share your poster here!</h3>
+          <label for="file" data-aos="fade-up" data-aos-delay="1100"></label>
+          <p data-aos="fade-up">Upload your poster to show to the world!</p>
+          <input accept=".png, .jpeg, .jpg, .pdf, .tiff, .eps" type="file"
+            id="file"
+            (change)="onFileChanged($event)" data-aos="fade-up" data-aos-delay="1100"/>
+            
+          <div class="image-preview mb-3" class="center" *ngIf="previewUrl">
+              <img [src]="previewUrl" height="500" width="500" />                 
+          </div>
+        </tr>
+        <hr data-aos="fade-up">
+        <div class="center">
+        <button type="button" (click)="onSubmit()" class="btn btn-green mt-5">Update Event</button>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+</body>
+

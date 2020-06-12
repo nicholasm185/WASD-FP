@@ -11,6 +11,7 @@ export class FileUploadService {
 
   proofUrl = 'https://backend.ticketmaya.me/api/attendee/upload';
   eventUrl = 'https://backend.ticketmaya.me/api/events/create';
+  updateUrl = 'https://backend.ticketmaya.me/api/events/update/';
 
   constructor(public http: HttpClient, public auth: AuthService) { }
 
@@ -19,8 +20,12 @@ export class FileUploadService {
     return this.http.post(this.proofUrl, formData);
   }
 
-  uploadEvent(formData: FormData) {
+  createEvent(formData: FormData) {
       return this.http.post(this.eventUrl, formData);
+  }
+
+  updateEvent(event_id: string, formData: FormData) {
+    return this.http.post(this.updateUrl + event_id, formData);
   }
 
 }

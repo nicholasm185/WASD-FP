@@ -10,10 +10,17 @@ div.gallery {
     transition-delay: 0 !important;
 }
 
-div.gallery:hover {
+div.gallery.old:hover {
     width: 225px;
     overflow: hidden;
     height: 325px;
+    transition: all 250ms !important;
+    transition-delay: 0 !important;
+}
+
+div.gallery:hover {
+    overflow: hidden;
+    border-color:#86C232;
     transition: all 250ms !important;
     transition-delay: 0 !important;
 }
