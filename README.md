@@ -1,6 +1,6 @@
 # WADS-FP
 
-This project was made for COMP6343 Class Group 12. Group members:
+This project was made for COMP6343 Class L4AC Group 12. Group members:
 * Nicholas Michael Halim
 * Marco Melvern
 
