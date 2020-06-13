@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
+import { Observable } from 'rxjs';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminViewComponent implements OnInit {
 
-  constructor() { }
+  verified = false;
+  userData;
+
+  constructor(
+    private admin: AdminService, 
+    private route: Router) { }
 
   ngOnInit(): void {
+    this.admin.isAdmin().subscribe(
+      data => {
+        console.log('success', data); 
+        this.verified=true;
+        this.getUserData();
+      },
+      error => {this.route.navigate(['/'])}
+    );
+    console.log(this.verified);
+    
   }
 
+  getUserData(){
+    if(this.verified){
+      this.admin.getUsers().subscribe(data => {
+        this.userData = data;
+        console.log(this.userData);
+      })
+    }
+  }
 }
