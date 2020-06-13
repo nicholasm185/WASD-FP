@@ -1,27 +1,31 @@
 # WADS-FP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+This project was made for COMP6343 Class L4AC Group 12. Group members:
+* Nicholas Michael Halim
+* Marco Melvern
 
-## Development server
+## Front-End
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Our front end uses Angular Framework for single-paged design. This enables fluid page transitions between pages with minimal load times during page navigation.
+There are several plugins we used to make the site look pretty:
+* Carousel
+* Angular Material
+* Bootstrap
+* Templates published in StartBootstrap with modifications.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Easily Signup and Login to create an account
+* Verify your email
+* Create events by supplying relevant data and a poster
+* Manage the event by downloading list of attendees and getting payment proofs in one click
+* Easily share the event-page by sharing the event-id
+* Upload proof of payment easily, an email with instructions and link to upload the proof is sent after purchasing an event.
 
-## Build
+## Connection to Backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The front-end connects to the backend using RESTFUL APIs, link to the backend repository can be found [here](https://github.com/nicholasm185/WASD-FP-Backend).
 
-## Running unit tests
+## Optimizations
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+While most of the website is eagerly loaded, the ADMIN routes are lazy loaded since not everyone can access it.

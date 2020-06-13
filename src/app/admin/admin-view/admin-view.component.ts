@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AdminComponent } from '../admin.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,6 +8,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
+=======
+import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
+import { Observable } from 'rxjs';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+>>>>>>> 3c7a69c2dbafe5eb2176ac64280f7421513a0f8d
 
 @Component({
   selector: 'app-admin-view',
@@ -15,6 +22,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AdminViewComponent implements OnInit, AfterViewInit  {
 
+<<<<<<< HEAD
   data;
   dataSource;
   loaded = false;
@@ -119,4 +127,34 @@ transition() {
 }
 
 
+=======
+  verified = false;
+  userData;
+
+  constructor(
+    private admin: AdminService, 
+    private route: Router) { }
+
+  ngOnInit(): void {
+    this.admin.isAdmin().subscribe(
+      data => {
+        console.log('success', data); 
+        this.verified=true;
+        this.getUserData();
+      },
+      error => {this.route.navigate(['/'])}
+    );
+    console.log(this.verified);
+    
+  }
+
+  getUserData(){
+    if(this.verified){
+      this.admin.getUsers().subscribe(data => {
+        this.userData = data;
+        console.log(this.userData);
+      })
+    }
+  }
+>>>>>>> 3c7a69c2dbafe5eb2176ac64280f7421513a0f8d
 }
