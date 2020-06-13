@@ -3,7 +3,7 @@
 <html lang="en">
 
   <body *ngIf="data == null">
-    <span class="d-block mb-3 caption" data-aos="fade-up" data-aos-delay="1000">Hmmm, event doesn't seem to exist. Maybe try checking your event code or contact the event organizer.</span>
+    <h4 class="d-block mb-3 center" data-aos="fade-up" data-aos-delay="100">Hmmm, event doesn't seem to exist.<tr></h4><span class="d-block mb-3 center" data-aos="fade-up" data-aos-delay="700">Maybe try checking your event code or contact the event organizer.</span>
   </body>
   <body *ngIf="data != null">
   <div class="site-wrap">
@@ -60,9 +60,11 @@
     
     <div class="site-section">
       <div class="container">
+        <div class="site-section-heading">
           <div class="col-lg-4" data-aos="fade-up">
           <div>
             <div data-aos="fade" data-aos-delay="600"><span>Starts in </span></div>
+          </div>
             <countdown-timer class="h1" data-aos="fade" data-aos-delay="600" (zeroTrigger)="timesUp()" [end]="[data['startDate']]"> </countdown-timer>
           </div>
           <p class="timercaption" data-aos="fade" data-aos-delay="700">DAYS | HRS | MIN | SEC</p>

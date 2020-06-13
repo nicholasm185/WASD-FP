@@ -61,7 +61,13 @@ body {
   
   .color-white-opacity-5 {
     color: rgba(255, 255, 255, 0.5); }
-  
+
+  .col-lg-4 {
+      background-color: #343a40;
+      border-radius: 25px;
+      text-align: center;
+  }
+
   .site-wrap:before {
     -webkit-transition: .3s all ease-in-out;
     -o-transition: .3s all ease-in-out;
@@ -240,7 +246,7 @@ body {
   /* Blocks */
   .container-fluid {
     max-width: 1400px; }
-  
+
   .btn-custom {
     text-transform: uppercase;
     color: #fff !important;
