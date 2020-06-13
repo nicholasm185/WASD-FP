@@ -1,0 +1,20 @@
+
+.mat-header-cell {
+    color: var(--font-color);
+}
+
+.mat-cell {
+    color: var(--font-color);
+}
+
+.mat-row {
+    color: var(--font-color);
+}
+
+.ng-container {
+    color: var(--font-color);
+}
+
+.mat-paginator {
+    color: var(--font-color);
+}

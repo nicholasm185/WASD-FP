@@ -52,6 +52,9 @@
                   <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">Verify email</button>
                   <button class="btn btn-outline-success" *ngIf="!!User['email_verified_at']">Email Verified!</button></div>
               <h5>Email: <b>{{auth.getEmail()}}</b></h5>
+
+    <!--- temporary -->
+    <a href="/admin">Access Admin</a>
               
             </div>
     </div>
