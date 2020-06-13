@@ -43,6 +43,8 @@
         <img align="left" data-aos="fade-up" data-aos-delay="600" class="fb-image-lg" src="https://i.pinimg.com/originals/69/98/fd/6998fd867b0eaed370b95607cb8be8a6.jpg" alt="Profile image example"/>
         <div class="fb-profile-text" data-aos="fade-up" data-aos-delay="500">
             <h1> Hi, {{ auth.getUserName() }}</h1>
+            <div class="verify">
+            <i class="large material-icons" *ngIf="User['admin'] == 1" style="vertical-align: top">verified_user</i></div>
         </div>
         <h4>Basic Info</h4>
             <hr width="200%">
