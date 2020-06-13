@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminService } from './services/admin.service';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AdminService } from './services/admin.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatFormFieldModule,
     MatProgressSpinnerModule,
     AdminRoutingModule
   ],

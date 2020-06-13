@@ -1,4 +1,4 @@
-<html lang="en" class="{{storedTheme}}" role="main">
+<!-- <html lang="en" class="{{storedTheme}}" role="main">
 
 <div>
     <head>
@@ -40,10 +40,6 @@
 
 <body>
     <h1>Welcome back, Boss</h1>
-
-    <!--<div class="spinner-container" *ngIf="dataSource.loading$ | async">
-        <mat-spinner></mat-spinner>
-    </div>-->
 
     <mat-form-field style="width: 50%">
         <input (keyup)="applyFilter($event)" matInput placeholder="Search user">
@@ -95,4 +91,46 @@
 
 </body>
 </div>
-</html>
+</html> -->
+
+<div class="container">
+    <div>
+    <p class="logo">Welcome Admin</p>
+    </div>
+    <div  [hidden]="!loaded" style="text-align: center">
+    <input class="main-search" (keyup)="applyFilter($event)" placeholder="Filter">
+    <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="verified_at">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> verified_at </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.verified_at}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="banned">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> banned </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.banned}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> action </mat-header-cell>
+            <mat-cell *matCellDef="let element"><button class="btn btn-danger" (click)="banUser(element.id, element.email)">Ban</button></mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator showFirstLastButtons >
+    </mat-paginator>
+    </div>
+</div>
+
+<!--</div>-->
