@@ -146,34 +146,31 @@
 
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {FormControl , Validators, FormBuilder} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, switchMap, takeUntil} from 'rxjs/operators';
 import {MatTableDataSource} from '@angular/material/table';
-import {any} from 'codelyzer/util/function';
-import {types} from 'util';
 import { MatSort, MatSortModule} from '@angular/material/sort';
-import {BrowserModule} from '@angular/platform-browser';
 import {MatPaginator} from '@angular/material/paginator';
 import {ActivatedRoute, Router} from '@angular/router';
 import { AdminService } from '../services/admin.service';
 import {User} from '../../interfaces/user';
-
-
-
 @Component({
   selector: 'app-admin-view',
   templateUrl: './admin-view.component.html',
   styleUrls: ['./admin-view.component.css']
 })
 export class AdminViewComponent implements OnInit, OnDestroy {
+
   constructor(private admin: AdminService , private route: ActivatedRoute, private router: Router) { }
-  displayedColumns: string[] = ['id', 'name', 'email', 'verified_at', 'banned', 'action'];
+  displayedColumns: string[] = ['ID', 'Name', 'Email', 'Verified_at', 'Banned', 'Action'];
   dataUnformated: User[];
   dataSource ;
   loaded = false;
+  storedTheme: string = localStorage.getItem('theme');
   private ngUnsubscribe = new Subject();
+
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
   ngOnInit(): void {
     this.admin.getUsers().pipe(takeUntil(this.ngUnsubscribe)).subscribe(
       (res: User[]) => {if (res) {this.dataUnformated = res;
@@ -195,4 +192,26 @@ export class AdminViewComponent implements OnInit, OnDestroy {
   banUser(id, email){
     console.log(id + ' ' + email);
   }
+
+  setTheme() {
+       if (this.storedTheme === 'dark') {
+         this.transition();
+         localStorage.setItem('theme', 'light');
+         this.storedTheme = localStorage.getItem('theme');
+       } else {
+       this.transition();
+       localStorage.setItem('theme', 'dark');
+       this.storedTheme = localStorage.getItem('theme');
+       }
+     }
+     transition() {
+       document.documentElement.classList.add('transition');
+       window.setTimeout(() => {
+       document.documentElement.classList.remove('transition');
+       }, 1000);
+   }
+
+   goBack() {
+     this.router.navigate(['dashboard']);
+   }
 }

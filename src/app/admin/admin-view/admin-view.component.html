@@ -93,37 +93,76 @@
 </div>
 </html> -->
 
-<div class="container">
+<html lang="en" class="{{storedTheme}}" role="main">
+
     <div>
-    <p class="logo">Welcome Admin</p>
+        <head>
+            <script>
+                const toggleSwitch = document.querySelector('.theme-switch input');
+        
+                  function switchTheme(e) {
+                      if(e.target.checked) {
+                          document.documentElement.setAttribute('data-theme', 'dark');
+                          localStorage.setItem('data-theme', 'dark'); //add this
+                      }
+                      else{
+                          document.documentElement.setAttribute('data-theme', 'light');
+                          localStorage.setItem('data-theme', 'light'); //add this
+                      }
+                    }
+                  toggleSwitch.addEventListener('change', switchTheme, false);
+                  const currentTheme = localStorage.getItem('data-theme');
+                  if (currentTheme) {
+                      document.documentElement.setAttribute('data-theme', currentTheme);
+        
+                      if (currentTheme === 'dark') {
+                          toggleSwitch.checked = true;
+                        }
+                      };
+              </script>
+        </head>
+        
+        <div class="col-md-12 text-right">
+          <div class="theme-switcher-wrap">
+                <label class="theme-switcher" [ngClass]="(storedTheme === 'dark')?'theme-switcher active' : 'theme-switcher'" (click)="setTheme()">
+                  <div class="slider round"></div>
+                  <div class="switch-path"></div>
+                  <div class="switch-handle"></div>
+                </label>
+        </div>
     </div>
+
+    <div class="container">
+    
+    <h5>Welcome Admin</h5>
+   
     <div  [hidden]="!loaded" style="text-align: center">
-    <input class="main-search" (keyup)="applyFilter($event)" placeholder="Filter">
+    <input class="main-search" (keyup)="applyFilter($event)" placeholder="Search user">
     <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="id" >
+        <ng-container matColumnDef="ID" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}}</mat-cell>
+          <mat-cell *matCellDef="let user"> {{user.id}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="Name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+          <mat-cell *matCellDef="let user"> {{user.name}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="email" >
+        <ng-container matColumnDef="Email" >
             <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.email}}</mat-cell>
+            <mat-cell *matCellDef="let user"> {{user.email}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="verified_at">
+        <ng-container matColumnDef="Verified_at">
             <mat-header-cell *matHeaderCellDef mat-sort-header> verified_at </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.verified_at}}</mat-cell>
+            <mat-cell *matCellDef="let user"> {{user.verified_at}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="banned">
+        <ng-container matColumnDef="Banned">
             <mat-header-cell *matHeaderCellDef mat-sort-header> banned </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.banned}}</mat-cell>
+            <mat-cell *matCellDef="let user"> {{user.banned}}</mat-cell>
         </ng-container>
-        <ng-container matColumnDef="action">
+        <ng-container matColumnDef="Action">
             <mat-header-cell *matHeaderCellDef mat-sort-header> action </mat-header-cell>
-            <mat-cell *matCellDef="let element"><button class="btn btn-danger" (click)="banUser(element.id, element.email)">Ban</button></mat-cell>
+            <mat-cell *matCellDef="let user"><button class="btn btn-danger" (click)="banUser(user.id, user.email)">Ban</button></mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -131,6 +170,8 @@
     <mat-paginator showFirstLastButtons >
     </mat-paginator>
     </div>
+    <button class="btn btn-green" (click)="goBack()">Exit Admin Page</button>
 </div>
-
+</div>
 <!--</div>-->
+</html>
