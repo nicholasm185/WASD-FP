@@ -192,11 +192,7 @@ export class AdminViewComponent implements OnInit, OnDestroy {
     this.dataSource.filter = $event.target.value.toLowerCase();
   }
 
-  navigateToAddGame() {
-    this.router.navigate(['admin/addgame']);
-  }
-
   banUser(id, email){
-    console.log(id + ' ' + email)
+    console.log(id + ' ' + email);
   }
 }
