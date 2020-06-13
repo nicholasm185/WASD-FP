@@ -54,7 +54,7 @@
               <h5>Email: <b>{{auth.getEmail()}}</b></h5>
 
     <!--- temporary -->
-    <a href="/admin">Access Admin</a>
+    <a href="/admin" *ngIf="User['admin'] == 1">Access Admin</a>
               
             </div>
     </div>

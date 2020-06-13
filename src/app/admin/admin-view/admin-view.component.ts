@@ -156,7 +156,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MatPaginator} from '@angular/material/paginator';
 import {ActivatedRoute, Router} from '@angular/router';
 import { AdminService } from '../services/admin.service';
-import {User} from '../interfaces/user';
+import {User} from '../../interfaces/user';
 
 
 
