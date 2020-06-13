@@ -9,6 +9,7 @@ import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { AdminService } from '../services/admin.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-admin-view',
@@ -43,7 +44,7 @@ export class AdminViewComponent implements OnInit, AfterViewInit  {
     this.admin.getUsers().pipe(takeUntil(this.ngUnsubscribe)).subscribe(
       (res: User[]) => {if (res) {this.dataUnformatted = res;
                                   this.dataSource = new MatTableDataSource(this.dataUnformatted);
-                                  this.loaded = true; this.dataSource.sort = this.sort; this.dataSource.paginator = this.paginator; }}
+                                  this.loaded = true; this.dataSource.sort = this.sort; this.dataSource.paginator = this.paginator; }}, error => {this.router.navigate(['/'])}
     );
   }
 
