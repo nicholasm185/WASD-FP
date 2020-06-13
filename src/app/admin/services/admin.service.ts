@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  verifyAdminURL = 'https://backend.ticketmaya.me/api/admin/amIAdmin'
-  getUsersURL = 'https://backend.ticketmaya.me/api/admin/getUsers'
-  banUserURL = 'https://backend.ticketmaya.me/api/admin/banUser'
-  unbanUserURL = 'https://backend.ticketmaya.me/api/admin/unbanUser'
+  verifyAdminURL = 'https://backend.ticketmaya.me/api/admin/amIAdmin';
+  getUsersURL = 'https://backend.ticketmaya.me/api/admin/getUsers';
+  banUserURL = 'https://backend.ticketmaya.me/api/admin/banUser';
+  unbanUserURL = 'https://backend.ticketmaya.me/api/admin/unbanUser';
 
   constructor(private http: HttpClient) { }
 
-  public isAdmin(){
-    return this.http.get(this.verifyAdminURL)
+  public isAdmin() {
+    return this.http.get(this.verifyAdminURL);
   }
 
-  public getUsers(){
-    return this.http.get(this.getUsersURL)
+  public getUsers(): Observable<any> {
+    return this.http.get(this.getUsersURL);
   }
 }

@@ -12,8 +12,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AdminComponent implements OnInit {
 
-  getUsersUrl = 'https://backend.ticketmaya.me/api/admin/getUsers';
-
   constructor(
     private http: HttpClient
   ) { }
@@ -21,21 +19,5 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     console.log('entering admin');
   }
-
-  showUsers(): Observable<any> {
-    return this.http.get(this.getUsersUrl);
-  }
-
-  /*getUsers() {
-    return this.http.get(this.getUsersUrl, {
-      params: new HttpParams()
-      .set('id', id.toString())
-      .set('name', name.toString())
-      .set('email', email.toString())
-      .set('verified_at', verified_at.toString())
-      .set('banned', banned.toString())
-
-    }).pipe(map(res => ['payload']));
-  }*/
 
 }
