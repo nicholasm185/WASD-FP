@@ -811,7 +811,16 @@ body {
       background: #d9232d;
     }
   }
-  
+
+  /*--------------------------------------------------------------
+# Clients
+--------------------------------------------------------------*/
+.clients {
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 25px;
+  background-color: #e4e4e4;
+}
   
   /*--------------------------------------------------------------
   # Frequently Asked Questions
