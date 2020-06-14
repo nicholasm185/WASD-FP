@@ -15,7 +15,7 @@ export class EventPageComponent implements OnInit {
   data;
   picturesrc: string;
 
-  constructor(private route: ActivatedRoute, private getEvent: GetEventService) { }
+  constructor(private route: ActivatedRoute, private getEvent: GetEventService, private router: Router) { }
 
   ngOnInit(): void {
     AOS.init();
@@ -34,6 +34,7 @@ export class EventPageComponent implements OnInit {
     this.eventExpire = true;
     console.log('countdown done');
     alert('This event has been held.');
+    this.router.navigate(['/']);
   }
 
 }
