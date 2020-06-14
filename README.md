@@ -51,6 +51,7 @@ Tip: you can add up to 3 emails and phone numbers as contact person per event
 * List of attendees and proof of payments can be downloaded from dashboard by clicking the buttons on the 'Your Events' section
 
 ## Admin controls
+* If your account is registered as an admin, a link to the admin page can be seen on the dashboard
 * Admin can see users registered on the website
 * Admin can ban users, which will cause the user to be unable to log in
 
