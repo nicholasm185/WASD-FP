@@ -50,11 +50,11 @@
             <hr width="200%">
             <div class="col-xs-12">
               
-              <h5><i class="large material-icons">insert_emoticon</i> Name: <b>{{auth.getUserName()}}</b><tr></h5>
+              <h5><i class="large material-icons" style="vertical-align: bottom">insert_emoticon</i> Name: <b>{{auth.getUserName()}}</b><tr></h5>
                 <div class="verify">
                   <button *ngIf="User['email_verified_at'] == null" class="btn btn-warning" (click)="requestVerify()">Verify email</button>
                   <button class="btn btn-outline-success" *ngIf="!!User['email_verified_at']">Email Verified!</button></div>
-              <h5><i class="large material-icons">mail</i> Email: <b>{{auth.getEmail()}}</b></h5>
+              <h5><i class="large material-icons" style="vertical-align: bottom">mail</i> Email: <b>{{auth.getEmail()}}</b></h5>
 
     <!--- temporary -->
     <a href="/admin" *ngIf="User['admin'] == 1">Access Admin</a>
