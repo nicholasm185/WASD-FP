@@ -21,4 +21,12 @@ export class AdminService {
   public getUsers(): Observable<any> {
     return this.http.get(this.getUsersURL);
   }
+
+  public banUser(data){
+    return this.http.post(this.banUserURL, data);
+  }
+
+  public unbanUser(data){
+    return this.http.post(this.unbanUserURL, data);
+  }
 }

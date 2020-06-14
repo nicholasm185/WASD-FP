@@ -137,7 +137,12 @@ export class UpdateEventComponent implements OnInit {
       modifyData.append('email2', this.eventUpdateForm.get('contactEmails.1').value);
       if (this.eventUpdateForm.get('contactEmails.2') != null) {
         modifyData.append('email3', this.eventUpdateForm.get('contactEmails.2').value);
+      } else{
+        modifyData.append('email3', null)
       }
+    } else if(this.eventUpdateForm.get('contactEmails.1') == null){
+      modifyData.append('email2', null);
+      modifyData.append('email3', null);
     }
 
     modifyData.append('phone1', this.eventUpdateForm.get('contactPhones.0').value);
@@ -145,7 +150,12 @@ export class UpdateEventComponent implements OnInit {
       modifyData.append('phone2', this.eventUpdateForm.get('contactPhones.1').value);
       if (this.eventUpdateForm.get('contactPhones.2') != null) {
         modifyData.append('phone3', this.eventUpdateForm.get('contactPhones.2').value);
+      } else{
+        modifyData.append('phone3', null)
       }
+    } else{
+      modifyData.append('phone2', null);
+      modifyData.append('phone3', null);
     }
 
     modifyData.append('picture',  this.eventPoster);
@@ -154,6 +164,7 @@ export class UpdateEventComponent implements OnInit {
     if (this.eventUpdateForm.invalid) {
       alert('Please fill in the required information');
     } else {
+      console.log(modifyData);
       this.updateEvent(modifyData);
     }
   }

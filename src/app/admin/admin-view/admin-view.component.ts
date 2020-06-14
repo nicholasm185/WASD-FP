@@ -161,7 +161,7 @@ import {User} from '../../interfaces/user';
 export class AdminViewComponent implements OnInit, OnDestroy {
 
   constructor(private admin: AdminService , private route: ActivatedRoute, private router: Router) { }
-  displayedColumns: string[] = ['ID', 'Name', 'Email', 'Verified_at', 'Banned', 'Action'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'verified_at', 'banned', 'action'];
   dataUnformated: User[];
   dataSource ;
   loaded = false;
@@ -189,29 +189,55 @@ export class AdminViewComponent implements OnInit, OnDestroy {
     this.dataSource.filter = $event.target.value.toLowerCase();
   }
 
-  banUser(id, email){
-    console.log(id + ' ' + email);
+  banUser(id: number, email: string){
+    if (confirm('Are you sure of this action?')) {
+      const data = {
+        id: id,
+        email: email
+      }
+      this.admin.banUser(data).subscribe(data => {
+        console.log(data);
+        this.ngOnInit();
+      });
+    } else {
+      alert('Action cancelled');
+    }
+  }
+
+  unbanUser(id: number, email:string){
+    if (confirm('Are you sure of this action?')) {
+      const data = {
+        id: id,
+        email: email
+      }
+      this.admin.unbanUser(data).subscribe(data => {
+        console.log(data);
+        this.ngOnInit();
+      });
+    } else {
+      alert('Action cancelled');
+    }
   }
 
   setTheme() {
-       if (this.storedTheme === 'dark') {
-         this.transition();
-         localStorage.setItem('theme', 'light');
-         this.storedTheme = localStorage.getItem('theme');
-       } else {
-       this.transition();
-       localStorage.setItem('theme', 'dark');
-       this.storedTheme = localStorage.getItem('theme');
-       }
-     }
-     transition() {
-       document.documentElement.classList.add('transition');
-       window.setTimeout(() => {
-       document.documentElement.classList.remove('transition');
-       }, 1000);
-   }
+        if (this.storedTheme === 'dark') {
+          this.transition();
+          localStorage.setItem('theme', 'light');
+          this.storedTheme = localStorage.getItem('theme');
+        } else {
+        this.transition();
+        localStorage.setItem('theme', 'dark');
+        this.storedTheme = localStorage.getItem('theme');
+        }
+      }
+      transition() {
+        document.documentElement.classList.add('transition');
+        window.setTimeout(() => {
+        document.documentElement.classList.remove('transition');
+        }, 1000);
+    }
 
-   goBack() {
-     this.router.navigate(['dashboard']);
-   }
+    goBack() {
+      this.router.navigate(['dashboard']);
+    }
 }
