@@ -86,7 +86,9 @@
                  {{ i['eventName'] }}
               </h4>
               
-               <a href="/event/{{i['event_id']}}">
+              <button class="btn btn-outline-dark" >{{ i['event_id'] }}</button>
+               
+                  <a href="/event/{{i['event_id']}}">
                  <img src="{{ decode(i['picture']) }}" width="10px" height="10px">
                </a>
               

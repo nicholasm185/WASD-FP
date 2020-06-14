@@ -88,4 +88,9 @@ div.desc {
 
 .btn-green {
    margin: 5px;
+   background: #aaed38;
+}
+
+.btn-outline-dark{
+    margin: 5px;
 }
