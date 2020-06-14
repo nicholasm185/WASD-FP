@@ -40,18 +40,6 @@
           <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <img src="{{picturesrc}}" alt="Image" class="img-fluid">
           </div>
-          <p>{{picturesrc}}</p>
-
-          <!--
-          <div class="col-lg-6 ml-auto">
-            <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200">Speaker #1</h2>
-            <div class="bio pl-lg-5">
-              <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300">Web Designer</span>
-              <p class="mb-4" data-aos="fade-right" data-aos-delay="400">DESCRIPTION HERE...</p>
-              <p data-aos="fade-right" data-aos-delay="500">
-                Yeah
-              </p>
-            </div>-->
 
         </div>
 
@@ -88,10 +76,10 @@
           <div class="col-12 border-top border-bottom py-5" data-aos="fade" data-aos-delay="200">
             <div class="row align-items-stretch">
               <div class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE US:</span><span class="h4"> {{data['phone1']}}</span></div>
-              <div *ngIf="data['phone2'] != null" class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE US:</span><span class="h4"> {{data['phone2']}}</span></div>
-              <div *ngIf="data['phone3'] != null" class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE US:</span><span class="h4"> {{data['phone3']}}</span></div>
+              <div *ngIf='data["phone2"] != null || data["phone2"] == "null"' class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE US:</span><span class="h4"> {{data['phone2']}}</span></div>
+              <div *ngIf='data["phone3"] != null || data["phone3"] == "null"' class="col-md-3 text-white mb-3 mb-md-0"><span>PHONE US:</span><span class="h4"> {{data['phone3']}}</span></div>
               
-              <div class="row-md-9 mt-5" >
+              <div class="col-md-9 mt-5" >
                 <h3 class="text-white">OR EMAIL US AT:</h3>
                 <h3 class="text-white">{{data['email1']}}</h3>
                 <h3 *ngIf="data['email2'] != null" class="text-white">{{data['email2']}}</h3>
