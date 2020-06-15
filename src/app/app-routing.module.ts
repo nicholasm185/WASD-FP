@@ -17,7 +17,7 @@ import { EventPageComponent } from './event-page/event-page.component';
 import { CancelEventComponent } from './event-page/cancel-event/cancel-event.component';
 import { UpdateEventComponent } from './event-page/update-event/update-event.component';
 import { EventSuccessComponent } from './create-event/event-success/event-success.component';
-
+import { FaqComponent } from './home/faq/faq.component';
 
 const routes: Routes = [
   {path: '' , component: HomeComponent},
@@ -31,6 +31,7 @@ const routes: Routes = [
   {path: 'success', component: SuccessComponent},
   {path: 'eventsuccess', component: EventSuccessComponent},
   {path: 'cancel', component: CancelComponent},
+  {path: 'faq', component: FaqComponent},
   {path: 'cancel/:event_id', component: CancelComponent},
   {path: 'cancelEvent', component: CancelEventComponent, canActivate: [AuthGuard]},
   {path: 'cancelEvent/:event_id', component: CancelEventComponent, canActivate: [AuthGuard]},
