@@ -110,6 +110,7 @@ indexEvents() {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    alert('Event code copied to clipboard');
   }
 
 }
