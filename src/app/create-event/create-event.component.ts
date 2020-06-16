@@ -15,6 +15,7 @@ import * as AOS from 'aos';
 export class CreateEventComponent implements OnInit {
   public eventForm: FormGroup;
   storedTheme: string = localStorage.getItem('theme');
+  userEmail: string = localStorage.getItem('email');
   minDate;
   eventPoster: File = null;
   previewUrl: any = null;
@@ -47,6 +48,7 @@ export class CreateEventComponent implements OnInit {
     this.eventForm.controls.startDate.valueChanges.subscribe(data => {
       document.getElementById('endDate').setAttribute('min', data);
     });
+    this.eventForm.get('contactEmails.0').setValue(this.userEmail);
   }
 
   get contactEmails() {

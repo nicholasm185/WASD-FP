@@ -99,7 +99,7 @@
           <div class="mt-2" *ngFor="let email of contactEmails.controls; let i = index">
             <div class="form-inline">
               <label class="mr-2"><i class="material-icons" style="vertical-align: top">label</i> Email {{1+i}}</label>
-              <input class="form-control mr-2" type="email" [formControlName]="i" data-aos="zoom-in">
+              <input class="form-control mr-2" type="email" style="width: 300px" [formControlName]="i" data-aos="zoom-in">
               <small *ngIf="!eventForm.controls.contactEmails.valid" class="text">
                 Please enter a valid email
               </small>
@@ -138,7 +138,7 @@
         </tr>
         <hr data-aos="fade-up">
         <div class="center">
-        <button type="button" (click)="onSubmit()" class="btn btn-green mt-5" data-aos="fade-up">Create Event</button>
+        <button type="button" (click)="onSubmit()" class="btn btn-green mt-5" style="width: 300px" data-aos="fade-up">Create Event</button>
         </div>
 
       </form>

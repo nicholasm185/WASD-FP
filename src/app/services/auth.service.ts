@@ -5,9 +5,6 @@ import { catchError, retry } from 'rxjs/operators';
 import { EventEmitter } from 'protractor';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
-import { access } from 'fs';
-
 
 @Injectable({
   providedIn: 'root'

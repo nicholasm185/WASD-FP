@@ -10,7 +10,9 @@ import * as AOS from 'aos';
 })
 export class BuyComponent implements OnInit {
   public buyForm: FormGroup;
+  userName: string = localStorage.getItem('name');
   storedTheme: string = localStorage.getItem('theme');
+  userEmail: string = localStorage.getItem('email');
   paymentMethods: any = Array('Cash', 'Transfer');
   qty = Array.from(Array(100).keys());
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
@@ -49,6 +51,8 @@ export class BuyComponent implements OnInit {
 
     });
     this.buyForm.get('event_id').setValue(this.route.snapshot.paramMap.get('event_id'));
+    this.buyForm.get('name').setValue(this.userName);
+    this.buyForm.get('email').setValue(this.userEmail);
   }
 
   buyTicket() {
