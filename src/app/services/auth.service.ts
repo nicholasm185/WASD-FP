@@ -5,6 +5,8 @@ import { catchError, retry } from 'rxjs/operators';
 import { EventEmitter } from 'protractor';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
+import { access } from 'fs';
 
 
 @Injectable({
@@ -25,6 +27,8 @@ export class AuthService {
   user$: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  logoutURL = 'https://backend.ticketmaya.me/api/logout';
 
   login(email: string, password: string) {
     this.loggedIn.next(true);
@@ -86,18 +90,25 @@ export class AuthService {
 
   logout() {
     // this.loggedIn.next(false);
-    localStorage.removeItem('accessToken');
+    // localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
     localStorage.removeItem('email');
     localStorage.removeItem('id');
     localStorage.removeItem('verified');
 
+    this.requestlogOut();
+    localStorage.removeItem('accessToken');
+
     this.router.navigate(['/']);
     alert('Logged out successfully');
   }
 
+  requestlogOut() {
+    return this.http.post(this.logoutURL, this.accessToken);
+  }
+
   requestVerification(){
-    return this.http.get(this.verifyUrl)
+    return this.http.get(this.verifyUrl);
   }
 
 }
