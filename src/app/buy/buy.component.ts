@@ -10,7 +10,7 @@ import * as AOS from 'aos';
 })
 export class BuyComponent implements OnInit {
   public buyForm: FormGroup;
-  userName: string = localStorage.getItem('name');
+  userName: string = localStorage.getItem('userName');
   storedTheme: string = localStorage.getItem('theme');
   userEmail: string = localStorage.getItem('email');
   paymentMethods: any = Array('Cash', 'Transfer');
