@@ -45,8 +45,10 @@ body {
                 "Segoe UI Emoji",
                 "Segoe UI Symbol",
                 "Noto Color Emoji";
-}
+    color: var(--font-color);
   
+}
+
   .border-2 {
     border-width: 2px; }
   

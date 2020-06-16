@@ -1,0 +1,8 @@
+
+h2 {
+    color: var(--primary-color);
+}
+
+.container-fluid {
+    color: var(--tile-color);
+}
