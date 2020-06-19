@@ -7,7 +7,7 @@ This project was made for COMP6343 Class L4AC Group 12. Group members:
 ## ticket<b>maya</b>.me
 This is the front end repository for the website ticketmaya.me. 
 
-![alt text](https://drive.google.com/file/d/18UkLd690TGHHEcz-4x4GpjGwwk7JgbPW/view?usp=sharing)
+![alt text](https://drive.google.com/file/d/18UkLd690TGHHEcz-4x4GpjGwwk7JgbPW)
 
 ## What is ticketMaya?
 ticketMaya is a web application specially designed for students in universities or high-schools as the platform to host events and to
