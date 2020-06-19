@@ -7,6 +7,12 @@ This project was made for COMP6343 Class L4AC Group 12. Group members:
 ## ticket<b>maya</b>.me
 This is the front end repository for the website ticketmaya.me. 
 
+![alt text](https://drive.google.com/file/d/18UkLd690TGHHEcz-4x4GpjGwwk7JgbPW/view?usp=sharing)
+
+## What is ticketMaya?
+ticketMaya is a web application specially designed for students in universities or high-schools as the platform to host events and to
+manage their ticketing arrangements. It could be utilized to create and share events, manage organizing their ticketing as well as ensure the proof of payment of the attendees, all without hassle.  
+
 ## Front-End
 
 Our front end uses Angular Framework for single-paged design. This enables fluid page transitions between pages with minimal load times during page navigation.
@@ -29,10 +35,10 @@ There are several plugins we implemented to enhance the experience in using this
 * Easily share the event-page by sharing the event-id
 * Upload proof of payment easily, an email with instructions and link to upload the proof is sent after purchasing an event.
 
-## Step-by-step to creating an event
+## Step-by-step to create an event
 
 1. Create your account using the signup button from the top bar.
-2. After, successfully registerd, you will be directed to the dashboard. There you will be able to see your basic info and events.
+2. After, successfully registered, you will be directed to the dashboard. There you will be able to see your basic info and events.
 3. Head to the create event page from the top bar, you will be shown a form to create the event
 Tip: you can add up to 3 emails and phone numbers as contact person per event
 4. After filling up the details and uploading your event poster, you can then click the 'create event' button
